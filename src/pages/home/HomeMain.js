@@ -1,27 +1,18 @@
 import React from 'react';
-import Banner from "./Banner"
-import ServicesOne from "./ServicesOne"
+import Banner from "./Banner";
 
 
-
-
-import Blog from './Blog';
-import TestimonialsSection from './TestimonialsSection';
-import FAQsection from './FAQsection';
-
-
+import ContactFormSection from '../../components/Common/ContactFormSection'; // 🔹 yeni ekledik
 
 const HomeMain = () => {
 	return (
 		<React.Fragment>
 			<Banner />
-			<ServicesOne />
 			
 			
 			
-			<FAQsection />
-			<TestimonialsSection />
-			 <Blog/>
+			{/* 🔹 Footer’dan hemen önce formu ekliyoruz */}
+			<ContactFormSection />
 		</React.Fragment>
 	);
 }

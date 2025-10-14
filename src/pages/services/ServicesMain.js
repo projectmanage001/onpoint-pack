@@ -5,7 +5,7 @@ import ServiceItem from '../../components/Service/ServiceItem';
 
 const ServicesMain = () => {
     const services = [
-        { iconClass: 'icon-postbox', title: 'Fast and reliable logistics solutions', link: '/express-freight-solutions' },
+        { iconClass: 'icon-postbox', title: 'Fast bb and reliable logistics solutions', link: '/express-freight-solutions' },
         { iconClass: 'icon-customer-service', title: 'Bridges Construction is an essential industry', link: '/quick-move-logistics' },
         { iconClass: 'icon-container', title: 'That involves building and designing structures', link: '/speedy-dispatch' },
         { iconClass: 'icon-shipping', title: 'Logistics expertise for your competitive advantage', link: '/swift-supply-chain' },

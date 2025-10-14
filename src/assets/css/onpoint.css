@@ -5943,204 +5943,151 @@ select.selectmenu.wide {
   color: var(--onpoint-base);
 }
 
-/*--------------------------------------------------------------
-# Contact One
---------------------------------------------------------------*/
-.contact-one {
-  position: relative;
-  display: block;
-  padding: 120px 0 120px;
-  z-index: 1;
+
+
+/* ================================
+   Kontaktformular (Modern Style)
+   ================================ */
+.contact-section {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem 3rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
 }
 
-.contact-one__inner {
-  position: relative;
-  display: block;
-  background: #FFFFFF;
-  box-shadow: 0px 0px 60px rgba(0, 0, 0, 0.05);
-  border-radius: 20px;
-  padding: 60px 60px 38px;
+.contact-section:hover {
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
 }
 
-.contact-one__contact-list {
-  position: relative;
+.contact-form {
   display: flex;
-  align-items: center;
-  gap: 75px;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-top: 1rem;
 }
 
-.contact-one__contact-list li {
-  position: relative;
+.contact-form label {
   display: flex;
-  align-items: center;
-  margin-bottom: 23px;
+  flex-direction: column;
+  font-weight: 600;
+  color: #1c1c1c;
+  font-size: 0.95rem;
 }
 
-.contact-one__contact-list li .icon {
-  position: relative;
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+  margin-top: 0.4rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-size: 0.95rem;
+  color: #222;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+  border-color: #f3c300; /* Taksi sarısı */
+  box-shadow: 0 0 0 3px rgba(243, 195, 0, 0.25);
+  outline: none;
+  background-color: #fff;
+}
+
+.contact-form textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.contact-form p {
+  color: #555;
+  font-size: 0.85rem;
+  margin-top: -0.3rem;
+}
+
+/* Onay kutusu */
+.checkbox-label {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 65px;
-  height: 65px;
-  background-color: var(--onpoint-primary);
-  border-radius: 50%;
+  align-items: flex-start;
+  font-size: 0.85rem;
+  color: #333;
+  margin-top: 0.5rem;
 }
 
-.contact-one__contact-list li .icon>span {
-  position: relative;
-  display: inline-block;
-  font-size: 24px;
-  color: var(--onpoint-black);
-  transition: .2s;
-  transform-origin: 50% 60%;
+.checkbox-label input {
+  margin-right: 0.6rem;
+  margin-top: 0.3rem;
+  transform: scale(1.2);
 }
 
-.contact-one__contact-list li:hover .icon>span {
-  -webkit-animation: wiggle .05s alternate ease infinite;
-  animation: wiggle .05s alternate ease infinite;
+/* Onay kutusu vurgulu */
+.highlighted-checkbox {
+  background: rgba(243, 195, 0, 0.08);
+  border: 1px solid #f3c300;
+  border-radius: 6px;
+  padding: 0.8rem;
 }
 
-.contact-one__contact-list li:hover .icon>.location-icon {
-  -webkit-animation: none;
-  -webkit-transform: scale(1.4);
-  animation: none;
-  transform: scale(1.4);
-}
-
-.contact-one__contact-list li:hover .icon>.email-icon {
-  -webkit-animation: none;
-  -webkit-transform: skew(-20deg);
-  animation: none;
-  transform: skew(-20deg);
-  text-indent: .1em;
-}
-
-.contact-one__contact-list li .content {
-  position: relative;
-  display: block;
-  margin-left: 20px;
-}
-
-.contact-one__contact-list li .content h3 {
-  font-size: 24px;
+/* Gönder butonu */
+.cta-button {
+  background-color: #f3c300;
+  color: #000;
   font-weight: 700;
-  line-height: 34px;
-  margin-bottom: 5px;
+  border: none;
+  padding: 0.9rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
 }
 
-.contact-one__contact-list li .content p {
-  color: var(--onpoint-gray);
+.cta-button:hover {
+  background-color: #000;
+  color: #f3c300;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
-.contact-one__contact-list li .content p>a {
-  color: var(--onpoint-gray);
+
+
+/* Gönderildi mesajı */
+.contact-form p[style*="green"] {
+  text-align: center;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 0.5rem;
 }
 
-.contact-one__contact-list li .content p>a:hover {
-  color: var(--onpoint-base);
+/* Mobil görünüm */
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 1.5rem;
+  }
+
+  .contact-form {
+    gap: 0.8rem;
+  }
+
+  .cta-button {
+    width: 100%;
+  }
+}
+
+/* Formun çevresine boşluk ekle */
+.contact-two {
+  margin-top: 60px;   /* üstten boşluk */
+  margin-bottom: 80px; /* alttan boşluk */
+}
+
+.contact-section {
+  margin-top: 40px;
+  margin-bottom: 60px;
 }
 
 /*--------------------------------------------------------------
-# Contact Two
---------------------------------------------------------------*/
-.contact-two {
-  position: relative;
-  display: block;
-  padding: 0 0 120px;
-  z-index: 1;
-}
-
-.contact-two__left {
-  position: relative;
-  display: block;
-  background: #FFFFFF;
-  box-shadow: 0px 4.4px 20px -1px rgba(19, 16, 34, 0.05);
-  border-radius: 20px;
-  padding: 60px 60px 60px;
-  margin-top: 74px;
-  z-index: 1;
-}
-
-.contact-two__form {
-  position: relative;
-  display: block;
-}
-
-.contact-two__form .row {
-  --bs-gutter-x: 20px;
-}
-
-.contact-two__input-box {
-  position: relative;
-  display: block;
-  margin-bottom: 20px;
-}
-
-.contact-two__input-box input[type="text"],
-.contact-two__input-box input[type="email"] {
-  height: 67px;
-  width: 100%;
-  padding-left: 20px;
-  padding-right: 20px;
-  outline: none;
-  font-size: 18px;
-  color: var(--onpoint-gray);
-  display: block;
-  font-weight: 400;
-  border-radius: 5px;
-  background-color: transparent;
-  border: 1px solid var(--onpoint-bdr-color);
-}
-
-.contact-two__input-box textarea {
-  position: relative;
-  height: 130px;
-  width: 100%;
-  padding-top: 15px;
-  padding-left: 20px;
-  padding-right: 20px;
-  outline: none;
-  font-size: 14px;
-  color: var(--onpoint-gray);
-  display: block;
-  font-weight: 400;
-  border-radius: 5px;
-  background-color: transparent;
-  border: 1px solid var(--onpoint-bdr-color);
-}
-
-.contact-two__btn-box {
-  position: relative;
-  display: block;
-}
-
-.contact-two__btn {
-  border: none;
-  color: var(--onpoint-black);
-  background-color: var(--onpoint-primary);
-}
-
-.contact-two__btn>span {
-  background-color: rgba(var(--onpoint-white-rgb), .30);
-}
-
-.contact-two__right {
-  position: relative;
-  display: block;
-  margin-left: -220px;
-  z-index: -1;
-}
-
-.contact-two__img {
-  position: relative;
-  display: block;
-}
-
-.contact-two__img img {
-  width: 100%;
-  border-radius: 20px;
-}
 
 /*--------------------------------------------------------------
 # Google Map Two
@@ -7710,403 +7657,7 @@ select.selectmenu.wide {
   padding: 160px 0 50px;
 }
 
-/*--------------------------------------------------------------
-# Team Page
---------------------------------------------------------------*/
-.team-page {
-  position: relative;
-  display: block;
-  padding: 120px 0 90px;
-}
 
-.team-page .team-one__single {
-  margin-bottom: 30px;
-}
-
-/*--------------------------------------------------------------
-# Team Details Info
---------------------------------------------------------------*/
-.team-details-info {
-  position: relative;
-  display: block;
-  padding: 120px 0 120px;
-  z-index: 1;
-}
-
-.team-details-info__inner {
-  position: relative;
-  display: block;
-  background-color: var(--onpoint-extra);
-  padding: 60px 0 0;
-  z-index: 1;
-}
-
-.team-details-info__inner:before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 92px;
-  background-color: var(--onpoint-white);
-  z-index: -1;
-}
-
-.team-details-info__left {
-  position: relative;
-  display: block;
-  margin-left: 245px;
-  margin-right: -30px;
-}
-
-.team-details-info__img {
-  position: relative;
-  display: block;
-}
-
-.team-details-info__img img {
-  width: 100%;
-}
-
-.team-details-info__content {
-  position: relative;
-  display: block;
-  margin-top: -9px;
-  margin-left: 100px;
-}
-
-.team-details-info__content-title-box {
-  position: relative;
-  display: block;
-}
-
-.team-details-info__content-title {
-  font-size: 36px;
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  margin-bottom: 3px;
-}
-
-.team-details-info__content-sub-title {
-  font-size: 18px;
-  color: var(--onpoint-base);
-}
-
-.team-details-info__details-box {
-  position: relative;
-  display: block;
-  margin-top: 33px;
-  margin-bottom: 70px;
-}
-
-.team-details-info__details-list {
-  position: relative;
-  display: block;
-}
-
-.team-details-info__details-list li {
-  position: relative;
-  display: block;
-}
-
-.team-details-info__details-list li+li {
-  margin-top: 5px;
-}
-
-.team-details-info__details-list li span {
-  font-size: 18px;
-  color: var(--onpoint-black);
-  font-weight: 700;
-}
-
-.team-details-info__details-list li a {
-  color: var(--onpoint-gray);
-  -webkit-transition: all 500ms ease;
-  transition: all 500ms ease;
-}
-
-.team-details-info__details-list li a:hover {
-  color: var(--onpoint-black);
-}
-
-.team-details-info__social {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.team-details-info__social a {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 38px;
-  width: 38px;
-  border-radius: 50%;
-  background-color: #4661c5;
-  color: var(--onpoint-white);
-  font-size: 15px;
-  overflow: hidden;
-  -webkit-transition: all 0.4s linear;
-  -o-transition: all 0.4s linear;
-  transition: all 0.4s linear;
-  z-index: 1;
-}
-
-.team-details-info__social a:nth-child(2) {
-  background-color: #1da1f2;
-}
-
-.team-details-info__social a:nth-child(3) {
-  background-color: #dc395c;
-}
-
-.team-details-info__social a:nth-child(4) {
-  background-color: #0073b0;
-}
-
-.team-details-info__social a:hover {
-  background-color: var(--onpoint-base);
-}
-
-.team-details__bottom {
-  position: relative;
-  display: block;
-  margin-top: 92px;
-}
-
-.team-details__title-1 {
-  font-size: 36px;
-  font-weight: 700;
-  line-height: 46px;
-  letter-spacing: -0.02em;
-}
-
-.team-details__text-1 {
-  margin-top: 19px;
-  margin-bottom: 30px;
-}
-
-.team-details__progress-and-company {
-  position: relative;
-  display: block;
-  margin-top: 44px;
-  margin-bottom: 48px;
-}
-
-.team-details__progress-box {
-  position: relative;
-  display: block;
-  margin-right: 70px;
-}
-
-.team-details__progress-list {
-  position: relative;
-  display: block;
-}
-
-.team-details__progress-list li {
-  position: relative;
-  display: block;
-}
-
-.team-details__progress-list li+li {
-  margin-top: 25px;
-}
-
-.team-details__progress-title {
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 26px;
-  color: var(--onpoint-black);
-  margin-bottom: 7px;
-}
-
-.team-details__progress-list li .bar {
-  position: relative;
-  width: 100%;
-  height: 2px;
-  background-color: #f5f5f8;
-}
-
-.team-details__progress-list li .bar-inner1 {
-  position: relative;
-  display: block;
-  width: 90%;
-  height: 4px;
-  top: -1px;
-  background-color: var(--onpoint-base);
-  -webkit-transition: all 1500ms ease;
-  -ms-transition: all 1500ms ease;
-  -o-transition: all 1500ms ease;
-  -moz-transition: all 1500ms ease;
-  transition: all 1500ms ease;
-}
-.team-details__progress-list li .bar-inner2 {
-  position: relative;
-  display: block;
-  width: 50%;
-  height: 4px;
-  top: -1px;
-  background-color: var(--onpoint-base);
-  -webkit-transition: all 1500ms ease;
-  -ms-transition: all 1500ms ease;
-  -o-transition: all 1500ms ease;
-  -moz-transition: all 1500ms ease;
-  transition: all 1500ms ease;
-}
-.team-details__progress-list li .bar-inner3 {
-  position: relative;
-  display: block;
-  width: 80%;
-  height: 4px;
-  top: -1px;
-  background-color: var(--onpoint-base);
-  -webkit-transition: all 1500ms ease;
-  -ms-transition: all 1500ms ease;
-  -o-transition: all 1500ms ease;
-  -moz-transition: all 1500ms ease;
-  transition: all 1500ms ease;
-}
-
-.team-details__progress-list li .count-text {
-  position: absolute;
-  right: 0;
-  bottom: 8px;
-  color: #8f8e9a;
-  line-height: 24px;
-  font-size: 14px;
-  text-align: center;
-  opacity: 1;
-  -webkit-transition: all 500ms ease;
-  -ms-transition: all 500ms ease;
-  -o-transition: all 500ms ease;
-  -moz-transition: all 500ms ease;
-  transition: all 500ms ease;
-}
-
-.team-details__progress-list li .bar-inner1.counted .count-text {
-  opacity: 1;
-}
-
-.team-details__progress-list li .bar.marb-0 {
-  margin-bottom: 0;
-}
-
-.team-details__company-box {
-  position: relative;
-  display: block;
-}
-
-.team-details__company-list {
-  position: relative;
-  display: block;
-}
-
-.team-details__company-list li {
-  position: relative;
-  display: block;
-}
-
-.team-details__company-list li+li {
-  margin-top: 26px;
-}
-
-.team-details__company-title {
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 34px;
-  letter-spacing: -0.016em;
-  margin-bottom: 3px;
-}
-
-.team-details__title-2 {
-  font-size: 36px;
-  font-weight: 700;
-  line-height: 46px;
-  letter-spacing: -0.02em;
-}
-
-.team-details__text-3 {
-  margin-top: 19px;
-  margin-bottom: 53px;
-}
-
-.team-details__contact-box {
-  position: relative;
-  display: block;
-  background-color: var(--onpoint-extra);
-  padding: 68px 75px 75px;
-}
-
-.team-details__contact-title {
-  font-size: 36px;
-  font-weight: 700;
-  line-height: 46px;
-  letter-spacing: -0.02em;
-}
-
-.team-details__contact-text {
-  font-size: 14px;
-  line-height: 24px;
-  margin-top: 1px;
-  margin-bottom: 37px;
-}
-
-.team-details__form {
-  position: relative;
-  display: block;
-}
-
-.team-details__input-box {
-  position: relative;
-  display: block;
-  margin-bottom: 20px;
-}
-
-.team-details__input-box input[type="text"],
-.team-details__input-box input[type="email"] {
-  height: 60px;
-  width: 100%;
-  border: none;
-  background-color: var(--onpoint-white);
-  padding-left: 30px;
-  padding-right: 30px;
-  outline: none;
-  font-size: 16px;
-  color: var(--onpoint-gray);
-  display: block;
-  font-weight: 400;
-  letter-spacing: 0.02em;
-}
-
-.team-details__input-box textarea {
-  font-size: 16px;
-  color: var(--onpoint-gray);
-  height: 150px;
-  width: 100%;
-  background-color: var(--onpoint-white);
-  padding: 15px 30px 30px;
-  border: none;
-  outline: none;
-  font-weight: 400;
-  letter-spacing: 0.02em;
-}
-
-.team-details__input-box.text-message-box {
-  height: 150px;
-}
-
-.team-details__btn-box {
-  position: relative;
-  display: block;
-  text-align: center;
-}
-
-.team-details__btn {
-  border: none;
-}
 
 /*--------------------------------------------------------------
 # Testimonials Page
@@ -9599,3 +9150,90 @@ select.selectmenu.wide {
 
 
 @media only screen and (min-width: 1200px) and (max-width: 1470px) {}
+
+/* 🔹 Formun CTA ile çakışmasını engelle ve biraz yukarı al */
+.home-contact-wrapper {
+  margin-top: 120px;     /* CTA'dan yukarıda konumlanır */
+  margin-bottom: 120px;  /* Footer’dan önce güzel bir boşluk */
+  position: relative;
+  z-index: 10;
+}
+
+/* 🔹 CTA’yı arka plana it */
+.cta-one {
+  position: relative;
+  margin-top: 60px; /* CTA biraz daha aşağıda başlasın */
+}
+
+/* === Navbar Logo ve Yazı === */
+.main-logo-link {
+  display: flex;
+  align-items: center;
+  gap: 18px; /* 🔹 Logodan yazıya olan mesafeyi arttırır */
+  text-decoration: none;
+}
+
+.navbar-logo {
+  height: 100px;
+}
+
+/* Yazı kısmı */
+.navbar-brand-name {
+  font-family: 'Montserrat', sans-serif; /* 🔹 Yazı tipi */
+  font-weight: 600;
+  font-size: 19px;
+  color: #000000;
+  letter-spacing: 0.4px;
+  transition: color 0.3s ease;
+}
+
+.navbar-brand-name:hover {
+  color: #8a0909; /* Hover'da altın sarısı */
+}
+
+/* Sticky header açık renkliyse siyah metin */
+.stricky-fixed .navbar-brand-name {
+  color: #000000;
+}
+
+.floating-btn {
+  position: fixed;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* ✅ WhatsApp butonu sağ altta */
+.whatsapp-btn {
+  background-color: #25D366;
+  bottom: 25px;
+  right: 25px;
+}
+
+/* ✅ Arama butonu sol altta */
+.call-btn {
+  background-color: #FFD700;
+  bottom: 25px;
+  left: 25px;
+}
+
+.floating-btn .icon {
+  font-size: 26px;
+}
+
+.floating-btn:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
+
+.main-header {
+  margin-top: 100px; /* ✅ sticky bar yüksekliği kadar boşluk bırakır */
+}
