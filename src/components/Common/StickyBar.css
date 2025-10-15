@@ -1,90 +1,51 @@
 .sticky-bar {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
+  z-index: 9999;
+  width: 100%;
   background: #000;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 40px;
-  z-index: 999999;
+  padding: 6px 15px;
   font-family: "Montserrat", sans-serif;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.white-text {
+  color: #fff;
+  display: block;
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+.yellow-text {
+  color: #ffcc00;
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.sticky-bar__link {
+  margin-right: 20px;
+  text-decoration: none;
 }
 
 .sticky-bar__left,
 .sticky-bar__right {
   display: flex;
-  align-items: center;
-  gap: 40px;
+  flex-direction: row;
+  gap: 25px;
 }
 
-.sticky-bar__item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.sticky-icon {
-  font-size: 22px;
-  color: #fff;
-  min-width: 22px;
-}
-
-.sticky-bar__text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.2;
-}
-
-.white-text {
-  color: #fff;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.yellow-text {
-  color: #ffd700;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.sticky-bar__link {
-  text-decoration: none;
-  color: inherit;
-  transition: opacity 0.2s ease;
-}
-
-.sticky-bar__link:hover {
-  opacity: 0.85;
-}
-
-/* Mobil uyum */
 @media (max-width: 768px) {
   .sticky-bar {
     flex-direction: column;
-    gap: 10px;
     text-align: center;
-    padding: 12px 10px;
   }
-
   .sticky-bar__left,
   .sticky-bar__right {
     flex-direction: column;
     gap: 10px;
-  }
-
-  .sticky-bar__item {
-    justify-content: center;
-  }
-
-  .white-text,
-  .yellow-text {
-    font-size: 13px;
-  }
-
-  .sticky-icon {
-    font-size: 18px;
   }
 }

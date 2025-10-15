@@ -1,11 +1,39 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import MenuItems from './MenuItems';
-import MobileMenu from './MobileMenu';
-import SearchPopup from './SearchPopup';
-import Sidebar from './Sidebar';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import MenuItems from "./MenuItems";
+import MobileMenu from "./MobileMenu";
+import SearchPopup from "./SearchPopup";
+import Sidebar from "./Sidebar";
 import navImg from "../../../assets/images/resources/logo-1.png";
 import "../../Common/StickyBar.css"; // ✅ sticky bar stilleri
+
+// ✅ ÜST SİYAH STICKY BAR BİLEŞENİ
+const StickyBar = () => (
+  <div className="sticky-bar top">
+    <div className="sticky-bar__left">
+      <a href="tel:+4915771677034" className="sticky-bar__link">
+        <span className="white-text">Click & Call | Mo–Fr 9–18 Uhr</span>
+        <span className="yellow-text">+49 1577 1677034</span>
+      </a>
+      <a href="/contact" className="sticky-bar__link form-link">
+        <span className="white-text">Zum Anfrageformular</span>
+        <span className="yellow-text">Jetzt Anfragen</span>
+      </a>
+    </div>
+
+    <div className="sticky-bar__right">
+      <a
+        href="https://wa.me/4915771677034"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="sticky-bar__link"
+      >
+        <span className="white-text">Click & Chat | WhatsApp 24/7</span>
+        <span className="yellow-text">WhatsApp</span>
+      </a>
+    </div>
+  </div>
+);
 
 const Header = (props) => {
   const { parentMenu, secondParentMenu, activeMenu } = props;
@@ -23,53 +51,22 @@ const Header = (props) => {
     }
   };
 
-  const handlePopup = () => {
-    setIsPopup(!isPopup);
-  };
-
-  const handleSidebar = () => {
-    setIsSidebar(!isSidebar);
-  };
+  const handlePopup = () => setIsPopup(!isPopup);
+  const handleSidebar = () => setIsSidebar(!isSidebar);
 
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.pageYOffset > 100) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+      if (window.pageYOffset > 100) setIsVisible(true);
+      else setIsVisible(false);
     };
     window.addEventListener("scroll", toggleVisibility);
     return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
   return (
-    <React.Fragment>
-      {/* ✅ ÜST SİYAH STICKY BAR */}
-      <div className="sticky-bar top">
-        <div className="sticky-bar__left">
-          <a href="tel:+491786546148" className="sticky-bar__link">
-            <span className="white-text">Click & Call | Mo–Fr 9–18 Uhr</span>{" "}
-            <span className="yellow-text">+49 1577 1677034</span>
-          </a>
-          <a href="/contact" className="sticky-bar__link form-link">
-            <span className="white-text">Zum Anfrageformular</span>{" "}
-            <span className="yellow-text">Jetzt Anfragen</span>
-          </a>
-        </div>
-
-        <div className="sticky-bar__right">
-          <a
-            href="https://wa.me/4915771677034"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="sticky-bar__link"
-          >
-            <span className="white-text">Click & Chat | WhatsApp 24/7</span>{" "}
-            <span className="yellow-text">WhatsApp</span>
-          </a>
-        </div>
-      </div>
+    <>
+      {/* ✅ Sticky Bar artık Header dışında */}
+      <StickyBar />
 
       {/* ✅ ANA HEADER */}
       <header className={`main-header ${isVisible ? "fixed-header" : ""}`}>
@@ -151,11 +148,7 @@ const Header = (props) => {
                     {/* ✅ LOGO + YAZI (sticky versiyon) */}
                     <div className="main-menu__logo">
                       <Link to="/" className="main-logo-link">
-                        <img
-                          src={navImg}
-                          alt="Logo"
-                          className="navbar-logo"
-                        />
+                        <img src={navImg} alt="Logo" className="navbar-logo" />
                         <span className="navbar-brand-name">
                           MoebelTaxi Umzug & Berlin
                         </span>
@@ -216,7 +209,7 @@ const Header = (props) => {
 
       <SearchPopup isPopup={isPopup} handlePopup={handlePopup} />
       <Sidebar isSidebar={isSidebar} handleSidebar={handleSidebar} />
-    </React.Fragment>
+    </>
   );
 };
 
