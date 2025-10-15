@@ -1,21 +1,16 @@
 // src/components/ServiceItem.js
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-const ServiceItem = ({ iconClass, title, link }) => (
+const ServiceItem = ({ iconClass, title }) => (
   <div className="services-one__single">
     <div className="services-one__icon">
       <span className={iconClass} />
     </div>
 
-    {/* Başlık kısmı */}
+    {/* Başlık kısmı - artık link yok, sadece düz metin */}
     <h3 className="services-one__title">
-      <Link to={link}>
-        {title}
-      </Link>
+      {title}
     </h3>
-
-    {/* Read More butonu tamamen kaldırıldı */}
   </div>
 );
 

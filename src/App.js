@@ -34,7 +34,7 @@ export default function App() {
               fontSize: "18px",
             }}
           >
-            🚚 Seite wird geladen …
+            🚚
           </div>
         }
       >
@@ -52,8 +52,8 @@ export default function App() {
           <Route path="about" element={<About />} />
           <Route path="testimonials" element={<Testimonials />} />
           <Route path="services" element={<Services />} />
-          <Route path="blog-details" element={<BlogDetails />} />
           <Route path="blog" element={<Blog />} />
+          <Route path="blog/:id" element={<BlogDetails />} />
           <Route path="contact" element={<Contact />} />
         </Routes>
       </Suspense>

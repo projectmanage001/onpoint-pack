@@ -1,152 +1,100 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import BlogPost from '../../components/Blog/BlogPost';
+
 import BlogImg1 from '../../assets/images/blog/blog-page-1-1.jpg';
 import BlogImg2 from '../../assets/images/blog/blog-page-1-2.jpg';
-import blogImg3 from '../../assets/images/blog/blog-page-1-3.jpg';
-import SearchWidget from '../../components/Widget/SearchWidget';
-import SidebarLatestBlogs from '../../components/Widget/SidebarLatestBlogs';
-import LatestBlogs1 from '../../assets/images/blog/lp-1-1.jpg';
-import LatestBlogs2 from '../../assets/images/blog/lp-1-2.jpg';
-import LatestBlogs3 from '../../assets/images/blog/lp-1-3.jpg';
-import SidebarCategory from '../../components/Widget/SidebarCategory';
-import SidebarTags from '../../components/Widget/SidebarTags';
+import BlogImg3 from '../../assets/images/blog/blog-page-1-3.jpg';
 
 const BlogMain = () => {
-    // blog entries
-    const blogs = [
-        {
-          imageUrl: LatestBlogs1,
-          date: 'Jan 10, 2022',
-          title: 'Optimize your logistics with our expertise',
-          link: '/blog-details'
-        },
-        {
-          imageUrl: LatestBlogs2,
-          date: 'Jan 10, 2022',
-          title: 'We make logistics easy for your business',
-          link: '/blog-details'
-        },
-        {
-          imageUrl: LatestBlogs3,
-          date: 'Jan 10, 2022',
-          title: 'Your one-stop solution for services',
-          link: '/blog-details'
-        }
-        // Add more blog entries as needed
-      ];
-    // blog categories
-      const categories = [
-        { name: 'Express Freight Solutions', count: 2, link: '/blog-details' },
-        { name: 'QuickMove Logistics', count: 2, link: '/blog-details' },
-        { name: 'Speedy Dispatch', count: 2, link: '/blog-details' },
-        { name: 'Swift Supply Chain', count: 2, link: '/blog-details' },
-        // Add more categories as needed
-      ];
-    // blog tags
-      const tags = [
-        { name: 'Prime Movers', link: '/blog-details' },
-        { name: 'Dispatch', link: '/blog-details' },
-        { name: 'Logistics', link: '/blog-details' },
-        { name: 'Shipping', link: '/blog-details' },
-        { name: 'Cargo', link: '/blog-details' },
-        { name: 'Reliable Third', link: '/blog-details' },
-        // Add more tags as needed
-      ];
-    // blog posts
-    const blogPosts = [
-        {
-          imageUrl: BlogImg1,
-          date: '29 Jan 2024',
-          title: 'Creating Lasting Impressions',
-          comments: 5,
-          author: 'admin',
-          excerpt: 'Construction is an essential industry that involves building and designing structures such as buildings roads, bridges, and more. It requires skilled workers, materials, and careful',
-          postLink: '/blog-details',
-          socialLinks: [
-            { url: '/blog-details', iconClass: 'icon-instagram' },
-            { url: '/blog-details', iconClass: 'icon-facebook-f' },
-            { url: '/blog-details', iconClass: 'icon-Vector' },
-            { url: '/blog-details', iconClass: 'icon-linkedin-in' },
-          ],
-        },
-        {
-          imageUrl: BlogImg2,
-          date: '29 Jan 2024',
-          title: 'Efficiently moving your goods',
-          comments: 5,
-          author: 'admin',
-          excerpt: 'Construction is an essential industry that involves building and designing structures such as buildings roads, bridges, and more. It requires skilled workers, materials, and careful',
-          postLink: '/blog-details',
-          socialLinks: [
-            { url: '/blog-details', iconClass: 'icon-instagram' },
-            { url: '/blog-details', iconClass: 'icon-facebook-f' },
-            { url: '/blog-details', iconClass: 'icon-Vector' },
-            { url: '/blog-details', iconClass: 'icon-linkedin-in' },
-          ],
-        },
-        {
-          imageUrl: blogImg3,
-          date: '29 Jan 2024',
-          title: 'Cultivate Success with Agriculture',
-          comments: 5,
-          author: 'admin',
-          excerpt: 'Construction is an essential industry that involves building and designing structures such as buildings roads, bridges, and more. It requires skilled workers, materials, and careful',
-          postLink: '/blog-details',
-          socialLinks: [
-            { url: '/blog-details', iconClass: 'icon-instagram' },
-            { url: '/blog-details', iconClass: 'icon-facebook-f' },
-            { url: '/blog-details', iconClass: 'icon-Vector' },
-            { url: '/blog-details', iconClass: 'icon-linkedin-in' },
-          ],
-        },
-        // Add more blog posts as needed
-      ];
-    
+  // Tüm bloglar
+  const allBlogs = [
+    {
+      id: 1,
+      imageUrl: BlogImg1,
+      date: '29 Jan 2024',
+      title: 'Creating Lasting Impressions',
+      excerpt: 'MöbelTaxi Berlin – Ihr professioneller Umzugsservice für stressfreie Umzüge, Möbeltransporte und Entsorgungen in Berlin & Brandenburg.',
+    },
+    {
+      id: 2,
+      imageUrl: BlogImg2,
+      date: '12 Feb 2024',
+      title: 'Efficiently moving your goods',
+      excerpt: 'Mit unseren flexiblen Transportlösungen bringen wir Ihre Möbel sicher und pünktlich ans Ziel – vom Kleintransport bis zum Komplettumzug.',
+    },
+    {
+      id: 3,
+      imageUrl: BlogImg3,
+      date: '20 Mar 2024',
+      title: 'Cultivate Success with Service',
+      excerpt: 'Unser Team steht für Zuverlässigkeit, Sorgfalt und faire Preise – entdecken Sie, warum Kunden immer wieder auf MöbelTaxi vertrauen.',
+    },
+  ];
 
-    return (
-        <React.Fragment>
-            {/*Blog Page Start*/}
-            <section className="blog-page">
-                <div className="container">
-                <div className="row">
-                    <div className="col-xl-8 col-lg-7">
-                        {blogPosts.map((post, index) => (
-                            <BlogPost key={index} {...post} />
-                        ))}
-                        <div className="blog-page__pagination">
-                            <ul className="pg-pagination list-unstyled">
-                            <li className="count">
-                                <Link to="/blog-details">1</Link>
-                            </li>
-                            <li className="count">
-                                <Link to="/blog-details">2</Link>
-                            </li>
-                            <li className="count">
-                                <Link to="/blog-details">3</Link>
-                            </li>
-                            <li className="next">
-                                <Link to="#" aria-label="Next">
-                                <i className="icon-dabble-arrow" />
-                                </Link>
-                            </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="col-xl-4 col-lg-5">
-                    <div className="sidebar">
-                        <SearchWidget/>
-                        <SidebarLatestBlogs blogs={blogs} />
-                        <SidebarCategory categories={categories} />
-                        <SidebarTags tags={tags} />
-                    </div>
-                    </div>
-                    </div>
+  // Pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const postsPerPage = 2;
+  const totalPages = Math.ceil(allBlogs.length / postsPerPage);
+
+  const currentBlogs = allBlogs.slice(
+    (currentPage - 1) * postsPerPage,
+    currentPage * postsPerPage
+  );
+
+  return (
+    <React.Fragment>
+      <section className="blog-page">
+        <div className="container">
+          <div className="row">
+            {currentBlogs.map((post) => (
+              <div className="col-xl-6 col-lg-6" key={post.id}>
+                <div className="blog-card">
+                  <Link to={`/blog/${post.id}`}>
+                    <img
+                      src={post.imageUrl}
+                      alt={post.title}
+                      className="img-fluid rounded mb-3"
+                    />
+                  </Link>
+                  <div>
+                    <p className="text-muted mb-1">{post.date}</p>
+                    <h4>
+                      <Link to={`/blog/${post.id}`} className="text-dark">
+                        {post.title}
+                      </Link>
+                    </h4>
+                    <p>{post.excerpt}</p>
+                    <Link to={`/blog/${post.id}`} className="btn btn-link p-0">
+                      Weiterlesen →
+                    </Link>
+                  </div>
                 </div>
-            </section>
-            {/*Blog Page End*/}
-        </React.Fragment>
-    );
+              </div>
+            ))}
+          </div>
+
+          {/* Pagination */}
+          <div className="blog-page__pagination text-center mt-4">
+            <ul className="pg-pagination list-unstyled d-inline-flex">
+              {[...Array(totalPages)].map((_, index) => (
+                <li
+                  key={index}
+                  className={`count mx-2 ${currentPage === index + 1 ? 'active' : ''}`}
+                >
+                  <button
+                    onClick={() => setCurrentPage(index + 1)}
+                    className="btn btn-outline-dark btn-sm"
+                  >
+                    {index + 1}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+    </React.Fragment>
+  );
 };
 
 export default BlogMain;
