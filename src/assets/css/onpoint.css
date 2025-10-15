@@ -9237,3 +9237,7 @@ select.selectmenu.wide {
 .main-header {
   margin-top: 100px; /* ✅ sticky bar yüksekliği kadar boşluk bırakır */
 }
+html, body {
+  overflow: auto !important;
+  height: auto !important;
+}
