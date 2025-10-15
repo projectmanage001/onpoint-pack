@@ -69,7 +69,7 @@ const HeaderStyleTwo = ({ parentMenu, secondParentMenu, activeMenu }) => {
                                                 <img src="assets/images/icon/main-menu-two-chat-icon.png" alt="" />
                                             </div>
                                             <div className="main-menu-two__call-number">
-                                                <p>Need help?</p>
+                                                <p>Brauchen Sie Hilfe?</p>
                                                 <h5>
                                                     <Link to="tel:+49 1577 1677034">+49 1577 1677034</Link>
                                                 </h5>
@@ -119,7 +119,7 @@ const HeaderStyleTwo = ({ parentMenu, secondParentMenu, activeMenu }) => {
                                                     <img src="assets/images/icon/main-menu-two-chat-icon.png" alt="" />
                                                 </div>
                                                 <div className="main-menu-two__call-number">
-                                                    <p>Need help?</p>
+                                                    <p>Brauchen Sie Hilfe?</p>
                                                     <h5>
                                                         <Link to="+49 1577 1677034">+49 1577 1677034</Link>
                                                     </h5>

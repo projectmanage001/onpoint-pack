@@ -5,15 +5,19 @@ import ServiceItem from '../../components/Service/ServiceItem';
 
 const ServicesMain = () => {
     const services = [
-        { iconClass: 'icon-postbox', title: 'Fast bb and reliable logistics solutions', link: '/express-freight-solutions' },
-        { iconClass: 'icon-customer-service', title: 'Bridges Construction is an essential industry', link: '/quick-move-logistics' },
-        { iconClass: 'icon-container', title: 'That involves building and designing structures', link: '/speedy-dispatch' },
-        { iconClass: 'icon-shipping', title: 'Logistics expertise for your competitive advantage', link: '/swift-supply-chain' },
-        { iconClass: 'icon-crane', title: 'Delivering success through logistics', link: '/on-point-distribution' },
-        { iconClass: 'icon-conveyor-1', title: 'Simplifying your logistics challenges', link: '/express-freight-solutions' },
-        { iconClass: 'icon-postbox', title: 'Efficiency at its best, with our logistics services', link: '/quick-move-logistics' },
-        { iconClass: 'icon-clock', title: 'Seamless logistics for your business needs', link: '/speedy-dispatch' },
-        { iconClass: 'icon-fragile', title: 'Your supply chain partner for success', link: '/swift-supply-chain' },
+        { iconClass: 'icon-postbox', title: '🏠 Umzüge (Wohnung, WG, Pflegeheim, Büro)', link: '/express-freight-solutions' },
+        { iconClass: 'icon-customer-service', title: '🛋️ Möbeltransporte & Mini-Umzüge', link: '/quick-move-logistics' },
+        { iconClass: 'icon-container', title: '♻️ Entrümpelung & Sperrmüllentsorgung', link: '/speedy-dispatch' },
+        { iconClass: 'icon-shipping', title: (
+  <>
+    🔧 <br />
+    Möbelmontage & <br />
+    Demontage Service
+  </>
+), link: '/swift-supply-chain' },
+        { iconClass: 'icon-crane', title: '🏡 Gartenarbeiten: Rasenmähen, Laub sammeln, Gartenabfälle entsorgen, Müllentsorgung', link: '/on-point-distribution' },
+        { iconClass: 'icon-conveyor-1', title: '🛒 Lieferung & Aufbau Ihrer Einkäufe von IKEA, Poco, Höffner & Co.', link: '/express-freight-solutions' },
+        
     ];
 
     return (

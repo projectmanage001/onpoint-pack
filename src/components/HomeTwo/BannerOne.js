@@ -53,7 +53,7 @@ const BannerOne = ({
                                             <span className="icon-phone" />
                                         </div>
                                         <div className="banner-one__call-number">
-                                            <p>Need help?</p>
+                                            <p>Brauchen Sie Hilfe?</p>
                                             <h5>
                                                 <Link to={`tel:${contactNumber}`}>{contactNumber}</Link>
                                             </h5>

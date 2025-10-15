@@ -50,9 +50,9 @@ const Solutions = () => {
             className="cta-one cta-two" // Custom class name
             breadcrumbsImg={bannerbg}
             shapeImageUrl={shapeImageUrl}
-            title="Need any help? contact us!"
-            text="Need help?"
-            phoneNumber="(307) 555-0133"
+            title="Brauchen Sie Hilfe? Kontaktieren Sie uns!"
+            text="Brauchen Sie Hilfe?"
+            phoneNumber="+49 1577 1677034"
             />
             {/*cta-section end */}
             <BackToTop scroll={isVisible} />

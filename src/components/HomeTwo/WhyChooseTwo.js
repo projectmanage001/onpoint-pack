@@ -15,7 +15,7 @@ const WhyChooseTwo = ({ backgroundImage, phone, title, text, readMoreLink, since
                         <span className="icon-phone" />
                     </div>
                     <div className="content">
-                        <p>Need help?</p>
+                        <p>Brauchen Sie Hilfe?</p>
                         <h3>
                             <Link to={`tel:${phone}`}>{phone}</Link>
                         </h3>
