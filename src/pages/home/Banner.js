@@ -65,9 +65,7 @@ function Banner() {
                           Zuverlässige <span>Reaktionsschnelle </span> <br /> Logistik
                         </h2>
                         <p className="main-slider__text">
-                          We have been operating for over a decade, providing top-notch
-                          services to <br /> our clients and building a strong track record in
-                          the industry.
+                          📍 Berlin & Umgebung – Schnell, zuverlässig und immer mit einem Lächeln unterwegs.
                         </p>
                         <div className="main-slider__btn-and-call-box">
                           <div className="main-slider__btn-box">
@@ -128,9 +126,7 @@ function Banner() {
                           Zuverlässige <span>Reaktionsschnelle </span> <br /> Logistik
                         </h2>
                         <p className="main-slider__text">
-                          We have been operating for over a decade, providing top-notch
-                          services to <br /> our clients and building a strong track record in
-                          the industry.
+                          📍 Berlin & Umgebung – Schnell, zuverlässig und immer mit einem Lächeln unterwegs.
                         </p>
                         <div className="main-slider__btn-and-call-box">
                           <div className="main-slider__btn-box">
@@ -192,9 +188,7 @@ function Banner() {
 Zuverlässige <span>Reaktionsschnelle </span> <br /> Logistik
                         </h2>
                         <p className="main-slider__text">
-                          We have been operating for over a decade, providing top-notch
-                          services to <br /> our clients and building a strong track record in
-                          the industry.
+                          📍 Berlin & Umgebung – Schnell, zuverlässig und immer mit einem Lächeln unterwegs.
                         </p>
                         <div className="main-slider__btn-and-call-box">
                           <div className="main-slider__btn-box">
