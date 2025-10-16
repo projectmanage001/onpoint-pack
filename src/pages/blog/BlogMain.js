@@ -1,96 +1,174 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useMemo } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
-import BlogImg1 from '../../assets/images/blog/blog-page-1-1.jpg';
-import BlogImg2 from '../../assets/images/blog/blog-page-1-2.jpg';
-import BlogImg3 from '../../assets/images/blog/blog-page-1-3.jpg';
+import Img1 from '../../assets/images/blog/blog-1.jpg';
+import Img2 from '../../assets/images/blog/blog-2.jpg';
+import Img3 from '../../assets/images/blog/blog-3.jpg';
+import Img4 from '../../assets/images/blog/blog-4.jpg';
+import Img5 from '../../assets/images/blog/blog-5.jpg';
+import Img6 from '../../assets/images/blog/blog-6.jpg';
+import Img7 from '../../assets/images/blog/blog-7.jpg';
+import Img8 from '../../assets/images/blog/blog-8.jpg';
+import Img9 from '../../assets/images/blog/blog-9.jpg';
+
+const ALL_POSTS = [
+  {
+    id: 1,
+    imageUrl: Img1,
+    date: '2024-01-29',
+    title: '🇩🇪 Umzug in Berlin – 10 Tipps für einen stressfreien Umzug',
+    excerpt:
+      'Mit guter Planung und einem zuverlässigen Partner wird Ihr Umzug in Berlin stressfrei. Möbel Taxi & Umzug Berlin zeigt, wie es gelingt.',
+  },
+  {
+    id: 2,
+    imageUrl: Img2,
+    date: '2024-02-12',
+    title: '🇩🇪 Möbeltransport Berlin – So finden Sie den richtigen Anbieter',
+    excerpt:
+      'Erfahren Sie, wie Sie den passenden Möbeltransport in Berlin auswählen – sicher, günstig und professionell mit Möbel Taxi & Umzug Berlin.',
+  },
+  {
+    id: 3,
+    imageUrl: Img3,
+    date: '2024-03-15',
+    title: '🇩🇪 Möbeltaxi Berlin – Wann lohnt sich der Service wirklich?',
+    excerpt:
+      'Ein Möbeltaxi ist ideal für kleine bis mittlere Transporte in Berlin. Sparen Sie Zeit und vermeiden Sie Stress mit Möbel Taxi & Umzug Berlin.',
+  },
+  {
+    id: 4,
+    imageUrl: Img4,
+    date: '2024-04-02',
+    title: '🇩🇪 Entrümpelung leicht gemacht – So sparen Sie Zeit & Geld in Berlin',
+    excerpt:
+      'Entrümpelungen in Berlin müssen nicht stressig sein – Möbel Taxi & Umzug Berlin zeigt, wie es effizient und kostengünstig funktioniert.',
+  },
+  {
+    id: 5,
+    imageUrl: Img5,
+    date: '2024-04-18',
+    title: '🇩🇪 Sperrmüll richtig entsorgen – Bußgelder in Berlin erklärt',
+    excerpt:
+      'Falsch entsorgter Sperrmüll kann teuer werden. Möbel Taxi & Umzug Berlin erklärt, wie Sie legal und einfach entsorgen.',
+  },
+  {
+    id: 6,
+    imageUrl: Img6,
+    date: '2024-05-10',
+    title: '🇩🇪 Seniorenumzug in Berlin – Mit Herz und Erfahrung',
+    excerpt:
+      'Einfühlsame Umzugsservices für Senioren in Berlin. Möbel Taxi & Umzug Berlin begleitet Sie sicher und stressfrei beim Umzug.',
+  },
+  {
+    id: 7,
+    imageUrl: Img7,
+    date: '2024-06-02',
+    title: '🇩🇪 Möbelmontage in Berlin – Warum Sie Profis beauftragen sollten',
+    excerpt:
+      'Schnell, sicher, fachgerecht: Möbelmontage in Berlin vom Profi spart Zeit und schützt Ihre Einrichtung.',
+  },
+  {
+    id: 8,
+    imageUrl: Img8,
+    date: '2024-06-20',
+    title: '🇩🇪 Gartenabfälle richtig entsorgen – Ihre Möglichkeiten in Berlin',
+    excerpt:
+      'Grünschnitt, Laub und Äste richtig entsorgen – Möbel Taxi & Umzug Berlin übernimmt Abholung und Entsorgung.',
+  },
+  {
+    id: 9,
+    imageUrl: Img9,
+    date: '2024-07-01',
+    title: '🇩🇪 Nachhaltig umziehen – So funktioniert ein umweltfreundlicher Umzug',
+    excerpt:
+      'Mit umweltfreundlichen Verpackungen und effizienten Routen nachhaltig umziehen – Möbel Taxi & Umzug Berlin zeigt wie.',
+  },
+];
+
+const POSTS_PER_PAGE = 3;
 
 const BlogMain = () => {
-  // Tüm bloglar
-  const allBlogs = [
-    {
-      id: 1,
-      imageUrl: BlogImg1,
-      date: '29 Jan 2024',
-      title: 'Creating Lasting Impressions',
-      excerpt: 'MöbelTaxi Berlin – Ihr professioneller Umzugsservice für stressfreie Umzüge, Möbeltransporte und Entsorgungen in Berlin & Brandenburg.',
-    },
-    {
-      id: 2,
-      imageUrl: BlogImg2,
-      date: '12 Feb 2024',
-      title: 'Efficiently moving your goods',
-      excerpt: 'Mit unseren flexiblen Transportlösungen bringen wir Ihre Möbel sicher und pünktlich ans Ziel – vom Kleintransport bis zum Komplettumzug.',
-    },
-    {
-      id: 3,
-      imageUrl: BlogImg3,
-      date: '20 Mar 2024',
-      title: 'Cultivate Success with Service',
-      excerpt: 'Unser Team steht für Zuverlässigkeit, Sorgfalt und faire Preise – entdecken Sie, warum Kunden immer wieder auf MöbelTaxi vertrauen.',
-    },
-  ];
+  const [searchParams, setSearchParams] = useSearchParams();
+  const currentPage = Number(searchParams.get('page') || 1);
 
-  // Pagination
-  const [currentPage, setCurrentPage] = useState(1);
-  const postsPerPage = 2;
-  const totalPages = Math.ceil(allBlogs.length / postsPerPage);
+  const totalPages = Math.ceil(ALL_POSTS.length / POSTS_PER_PAGE);
+  const currentPosts = useMemo(() => {
+    const start = (currentPage - 1) * POSTS_PER_PAGE;
+    return ALL_POSTS.slice(start, start + POSTS_PER_PAGE);
+  }, [currentPage]);
 
-  const currentBlogs = allBlogs.slice(
-    (currentPage - 1) * postsPerPage,
-    currentPage * postsPerPage
-  );
+  const handlePage = (p) => {
+    if (p < 1 || p > totalPages) return;
+    setSearchParams({ page: String(p) });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <React.Fragment>
-      <section className="blog-page">
+      <Helmet>
+        <title>Blog | Möbel Taxi & Umzug Berlin</title>
+        <meta
+          name="description"
+          content="Lesen Sie Tipps & Ratgeber zu Umzug, Möbeltransport, Entrümpelung, Sperrmüll & Möbelmontage in Berlin – vom erfahrenen Team Möbel Taxi & Umzug Berlin."
+        />
+        <meta
+          name="keywords"
+          content="Umzug Berlin, Möbeltransport Berlin, Möbeltaxi Berlin, Entrümpelung Berlin, Sperrmüll Berlin, Möbelmontage Berlin"
+        />
+      </Helmet>
+
+      <section className="blog-page py-5">
         <div className="container">
           <div className="row">
-            {currentBlogs.map((post) => (
-              <div className="col-xl-6 col-lg-6" key={post.id}>
+            {currentPosts.map((post) => (
+              <article className="col-xl-4 col-lg-4 mb-4" key={post.id}>
                 <div className="blog-card">
-                  <Link to={`/blog/${post.id}`}>
+                  <Link to={`/blog/${post.id}`} aria-label={post.title}>
                     <img
                       src={post.imageUrl}
                       alt={post.title}
                       className="img-fluid rounded mb-3"
+                      loading="lazy"
                     />
                   </Link>
-                  <div>
-                    <p className="text-muted mb-1">{post.date}</p>
-                    <h4>
-                      <Link to={`/blog/${post.id}`} className="text-dark">
-                        {post.title}
-                      </Link>
-                    </h4>
-                    <p>{post.excerpt}</p>
-                    <Link to={`/blog/${post.id}`} className="btn btn-link p-0">
-                      Weiterlesen →
+                  <p className="text-muted mb-1">
+                    {new Date(post.date).toLocaleDateString('de-DE')}
+                  </p>
+                  <h3 className="h5">
+                    <Link to={`/blog/${post.id}`} className="text-dark">
+                      {post.title}
                     </Link>
-                  </div>
+                  </h3>
+                  <p>{post.excerpt}</p>
+                  <Link to={`/blog/${post.id}`} className="btn btn-link p-0">
+                    Weiterlesen →
+                  </Link>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
 
-          {/* Pagination */}
-          <div className="blog-page__pagination text-center mt-4">
+          <nav className="text-center mt-4" aria-label="pagination">
             <ul className="pg-pagination list-unstyled d-inline-flex">
-              {[...Array(totalPages)].map((_, index) => (
-                <li
-                  key={index}
-                  className={`count mx-2 ${currentPage === index + 1 ? 'active' : ''}`}
-                >
-                  <button
-                    onClick={() => setCurrentPage(index + 1)}
-                    className="btn btn-outline-dark btn-sm"
-                  >
-                    {index + 1}
-                  </button>
-                </li>
-              ))}
+              {Array.from({ length: totalPages }).map((_, i) => {
+                const p = i + 1;
+                return (
+                  <li key={p} className="mx-2">
+                    <button
+                      onClick={() => handlePage(p)}
+                      className={`btn btn-sm ${
+                        currentPage === p ? 'btn-dark' : 'btn-outline-dark'
+                      }`}
+                    >
+                      {p}
+                    </button>
+                  </li>
+                );
+              })}
             </ul>
-          </div>
+          </nav>
         </div>
       </section>
     </React.Fragment>
