@@ -31,17 +31,17 @@ const MobileMenu = ({ handleMobileMenu }) => {
             <ul className="main-menu__list">
               <li>
                 <Link to="/" onClick={handleMobileMenu}>
-                  Home
+                  Startseite
                 </Link>
               </li>
               <li>
                 <Link to="/about" onClick={handleMobileMenu}>
-                  About
+                  Über Uns
                 </Link>
               </li>
               <li>
                 <Link to="/services" onClick={handleMobileMenu}>
-                  Services
+                  Leistungen
                 </Link>
               </li>
               <li>
@@ -51,7 +51,7 @@ const MobileMenu = ({ handleMobileMenu }) => {
               </li>
               <li>
                 <Link to="/contact" onClick={handleMobileMenu}>
-                  Contact
+                  Kontakt
                 </Link>
               </li>
             </ul>
