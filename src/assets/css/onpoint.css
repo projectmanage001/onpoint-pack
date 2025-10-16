@@ -714,7 +714,7 @@ a.scroll-to-target.scroll-to-top {
 }
 
 .main-menu__logo img {
-  max-height: 120px;
+  max-height: 90px;
 }
 
 .main-menu__logo a {
@@ -4375,7 +4375,23 @@ select.selectmenu.wide {
 
 .footer-widget__logo {
   position: relative;
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 220px !important;   /* 🔸 footer yüksekliği artırıldı */
+  overflow: visible !important;   /* 🔸 logo taşabiliyor artık */
+}
+
+.footer-widget__logo img {
+  width: 280px !important;        /* 🔸 genişlik net büyütüldü */
+  height: auto !important;        /* 🔸 orantı korundu */
+  max-height: none !important;    /* 🔸 sistemin kestiği sınırı kaldırır */
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+.footer-widget__logo img:hover {
+  transform: scale(1.08);         /* 🔸 hover’da büyüme efekti */
 }
 
 .footer-widget__about-text {
@@ -9174,7 +9190,7 @@ select.selectmenu.wide {
 }
 
 .navbar-logo {
-  height: 120px;
+  height: 105px;
 }
 
 /* Yazı kısmı */

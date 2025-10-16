@@ -71,10 +71,18 @@ function Banner() {
                         </p>
                         <div className="main-slider__btn-and-call-box">
                           <div className="main-slider__btn-box">
-                            <Link to="/about" className="thm-btn main-slider__btn">
-                              Mehr lesen
-                              <span />
-                            </Link>
+                            <Link
+  to="/contact"
+  className="main-menu__btn"
+  style={{
+    backgroundColor: "#ffcc00",
+    color: "#111",
+    fontWeight: 600,
+    borderRadius: 8,
+  }}
+>
+  Jetzt Kontakt
+</Link>
                           </div>
                           <div className="main-slider__call">
                             <div className="main-slider__call-icon">
@@ -126,10 +134,18 @@ function Banner() {
                         </p>
                         <div className="main-slider__btn-and-call-box">
                           <div className="main-slider__btn-box">
-                            <Link to="/about" className="thm-btn main-slider__btn">
-                              Mehr lesen
-                              <span />
-                            </Link>
+                            <Link
+  to="/contact"
+  className="main-menu__btn"
+  style={{
+    backgroundColor: "#ffcc00",
+    color: "#111",
+    fontWeight: 600,
+    borderRadius: 8,
+  }}
+>
+  Jetzt Kontakt
+</Link>
                           </div>
                           <div className="main-slider__call">
                             <div className="main-slider__call-icon">
@@ -182,10 +198,18 @@ Zuverlässige <span>Reaktionsschnelle </span> <br /> Logistik
                         </p>
                         <div className="main-slider__btn-and-call-box">
                           <div className="main-slider__btn-box">
-                            <Link to="/about" className="thm-btn main-slider__btn">
-                              Mehr lesen
-                              <span />
-                            </Link>
+                            <Link
+  to="/contact"
+  className="main-menu__btn"
+  style={{
+    backgroundColor: "#ffcc00",
+    color: "#111",
+    fontWeight: 600,
+    borderRadius: 8,
+  }}
+>
+  Jetzt Kontakt
+</Link>
                           </div>
                           <div className="main-slider__call">
                             <div className="main-slider__call-icon">
