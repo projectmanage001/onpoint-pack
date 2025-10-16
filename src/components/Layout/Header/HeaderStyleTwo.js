@@ -76,8 +76,8 @@ const HeaderStyleTwo = ({ parentMenu, secondParentMenu, activeMenu }) => {
                                             </div>
                                         </div>
                                         <div className="main-menu-two__btn-box">
-                                            <Link to="/about" className="thm-btn main-menu-two__btn">
-                                                Read more
+                                            <Link to="/contact" className="thm-btn main-menu__btn yellow-btn">
+                                                Jetzt Kontakt
                                                 <span />
                                             </Link>
                                         </div>

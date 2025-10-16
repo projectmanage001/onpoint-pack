@@ -714,7 +714,7 @@ a.scroll-to-target.scroll-to-top {
 }
 
 .main-menu__logo img {
-  max-height: 90px;
+  max-height: 120px;
 }
 
 .main-menu__logo a {
@@ -9169,12 +9169,12 @@ select.selectmenu.wide {
 .main-logo-link {
   display: flex;
   align-items: center;
-  gap: 18px; /* 🔹 Logodan yazıya olan mesafeyi arttırır */
+  gap: 20px; /* 🔹 Logodan yazıya olan mesafeyi arttırır */
   text-decoration: none;
 }
 
 .navbar-logo {
-  height: 100px;
+  height: 120px;
 }
 
 /* Yazı kısmı */
@@ -9194,6 +9194,10 @@ select.selectmenu.wide {
 /* Sticky header açık renkliyse siyah metin */
 .stricky-fixed .navbar-brand-name {
   color: #000000;
+}
+.icon {
+  color: #ffffff !important; /* ikonlar beyaz */
+  font-size: 14px;
 }
 
 .floating-btn {
@@ -9244,4 +9248,19 @@ html, body, #root, .page-wrapper {
   position: relative !important;
   visibility: visible !important;
   background-color: #fff !important;
+}
+.yellow-btn {
+  background-color: #ffcc00 !important; /* sarı arka plan */
+  color: #000000 !important; /* siyah yazı */
+  border: none;
+  font-weight: 600;
+  padding: 12px 30px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.yellow-btn:hover {
+  background-color: #e6b800 !important; /* biraz koyu sarı hover */
+  color: #000 !important;
+  transform: scale(1.03);
 }
