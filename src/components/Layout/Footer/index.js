@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaFacebookSquare, FaInstagram } from 'react-icons/fa';
 
 // Görseller
-import FooterShape1 from '../../../assets/images/shapes/footer-shape-1.png';
+
 import footerLogo1 from '../../../assets/images/resources/footer-logo-1.png';
 
 // Floating buttons
@@ -31,9 +31,7 @@ const Footer = () => {
     <>
       {/* Site Footer Start */}
       <footer className="site-footer">
-        <div className="site-footer__shape-1 float-bob-y">
-          <img src={FooterShape1} alt="Footer Shape" />
-        </div>
+        
 
         <div className="site-footer__top">
           <div className="container">
