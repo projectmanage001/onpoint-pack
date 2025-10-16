@@ -186,6 +186,29 @@ const POSTS = [
           und faire Preise. So kommt Ihr Möbeltransport sicher und stressfrei ans
           Ziel.
         </p>
+        <ul>
+          <li>
+            📞 Telefon & WhatsApp:{" "}
+            <a href="tel:+4915771677034">+49 1577 1677034</a>
+          </li>
+          <li>
+            📧 E-Mail:{" "}
+            <a href="mailto:moebeltaxiumzug@gmail.com">
+              moebeltaxiumzug@gmail.com
+            </a>
+          </li>
+          <li>
+            📸 Instagram:{" "}
+            <a
+              href="https://instagram.com/mobeltaxiumzug"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @mobeltaxiumzug
+            </a>
+          </li>
+        </ul>
+      
       </>
     ),
   },
@@ -226,6 +249,28 @@ const POSTS = [
           Mit Möbel Taxi & Umzug sparen Sie Zeit, vermeiden Stress und sichern
           Ihre Möbel zuverlässig.
         </p>
+        <ul>
+          <li>
+            📞 Telefon & WhatsApp:{" "}
+            <a href="tel:+4915771677034">+49 1577 1677034</a>
+          </li>
+          <li>
+            📧 E-Mail:{" "}
+            <a href="mailto:moebeltaxiumzug@gmail.com">
+              moebeltaxiumzug@gmail.com
+            </a>
+          </li>
+          <li>
+            📸 Instagram:{" "}
+            <a
+              href="https://instagram.com/mobeltaxiumzug"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @mobeltaxiumzug
+            </a>
+          </li>
+        </ul>
       </>
     ),
   },
@@ -266,6 +311,28 @@ const POSTS = [
 
         <h3>✅ Fazit</h3>
         <p>Mit Möbel Taxi & Umzug Berlin erhalten Sie schnelle, effiziente und kostengünstige Lösungen.</p>
+        <ul>
+          <li>
+            📞 Telefon & WhatsApp:{" "}
+            <a href="tel:+4915771677034">+49 1577 1677034</a>
+          </li>
+          <li>
+            📧 E-Mail:{" "}
+            <a href="mailto:moebeltaxiumzug@gmail.com">
+              moebeltaxiumzug@gmail.com
+            </a>
+          </li>
+          <li>
+            📸 Instagram:{" "}
+            <a
+              href="https://instagram.com/mobeltaxiumzug"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @mobeltaxiumzug
+            </a>
+          </li>
+        </ul>
       </>
     ),
   },
@@ -304,6 +371,28 @@ const POSTS = [
         <p>
           Mit Möbel Taxi & Umzug Berlin sparen Sie Zeit, vermeiden Bußgelder und handeln umweltgerecht.
         </p>
+        <ul>
+          <li>
+            📞 Telefon & WhatsApp:{" "}
+            <a href="tel:+4915771677034">+49 1577 1677034</a>
+          </li>
+          <li>
+            📧 E-Mail:{" "}
+            <a href="mailto:moebeltaxiumzug@gmail.com">
+              moebeltaxiumzug@gmail.com
+            </a>
+          </li>
+          <li>
+            📸 Instagram:{" "}
+            <a
+              href="https://instagram.com/mobeltaxiumzug"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @mobeltaxiumzug
+            </a>
+          </li>
+        </ul>
       </>
     ),
   },
@@ -342,6 +431,28 @@ const POSTS = [
         <p>
           Mit Möbel Taxi & Umzug Berlin wird der Seniorenumzug sicher und angenehm.
         </p>
+        <ul>
+          <li>
+            📞 Telefon & WhatsApp:{" "}
+            <a href="tel:+4915771677034">+49 1577 1677034</a>
+          </li>
+          <li>
+            📧 E-Mail:{" "}
+            <a href="mailto:moebeltaxiumzug@gmail.com">
+              moebeltaxiumzug@gmail.com
+            </a>
+          </li>
+          <li>
+            📸 Instagram:{" "}
+            <a
+              href="https://instagram.com/mobeltaxiumzug"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @mobeltaxiumzug
+            </a>
+          </li>
+        </ul>
       </>
     ),
   },
@@ -374,6 +485,28 @@ const POSTS = [
 
         <h3>✅ Fazit</h3>
         <p>Professionelle Möbelmontage spart Zeit, Nerven und schützt Ihre Möbel.</p>
+        <ul>
+          <li>
+            📞 Telefon & WhatsApp:{" "}
+            <a href="tel:+4915771677034">+49 1577 1677034</a>
+          </li>
+          <li>
+            📧 E-Mail:{" "}
+            <a href="mailto:moebeltaxiumzug@gmail.com">
+              moebeltaxiumzug@gmail.com
+            </a>
+          </li>
+          <li>
+            📸 Instagram:{" "}
+            <a
+              href="https://instagram.com/mobeltaxiumzug"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @mobeltaxiumzug
+            </a>
+          </li>
+        </ul>
       </>
     ),
   },
@@ -403,6 +536,28 @@ const POSTS = [
 
         <h3>✅ Fazit</h3>
         <p>Mit Möbel Taxi & Umzug Berlin entsorgen Sie Gartenabfälle stressfrei und umweltfreundlich.</p>
+        <ul>
+          <li>
+            📞 Telefon & WhatsApp:{" "}
+            <a href="tel:+4915771677034">+49 1577 1677034</a>
+          </li>
+          <li>
+            📧 E-Mail:{" "}
+            <a href="mailto:moebeltaxiumzug@gmail.com">
+              moebeltaxiumzug@gmail.com
+            </a>
+          </li>
+          <li>
+            📸 Instagram:{" "}
+            <a
+              href="https://instagram.com/mobeltaxiumzug"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @mobeltaxiumzug
+            </a>
+          </li>
+        </ul>
       </>
     ),
   },
@@ -435,6 +590,28 @@ const POSTS = [
 
         <h3>✅ Fazit</h3>
         <p>Mit Möbel Taxi & Umzug Berlin kombinieren Sie Effizienz, Sicherheit und Umweltschutz.</p>
+        <ul>
+          <li>
+            📞 Telefon & WhatsApp:{" "}
+            <a href="tel:+4915771677034">+49 1577 1677034</a>
+          </li>
+          <li>
+            📧 E-Mail:{" "}
+            <a href="mailto:moebeltaxiumzug@gmail.com">
+              moebeltaxiumzug@gmail.com
+            </a>
+          </li>
+          <li>
+            📸 Instagram:{" "}
+            <a
+              href="https://instagram.com/mobeltaxiumzug"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @mobeltaxiumzug
+            </a>
+          </li>
+        </ul>
       </>
     ),
   },
