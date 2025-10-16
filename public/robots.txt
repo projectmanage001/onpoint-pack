@@ -1,3 +1,18 @@
-# https://www.robotstxt.org/robotstxt.html
+# robots.txt for Möbel Taxi & Umzug Berlin
 User-agent: *
 Disallow:
+
+# ✅ Allow everything to be indexed
+Allow: /
+
+# ✅ Sitemap for better crawling
+Sitemap: https://www.moebeltaxiumzug.com/sitemap.xml
+
+# ✅ Additional settings
+User-agent: Googlebot
+Disallow: /admin/
+Disallow: /private/
+
+User-agent: Bingbot
+Disallow: /admin/
+Disallow: /private/
