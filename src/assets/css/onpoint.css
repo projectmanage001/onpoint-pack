@@ -4208,24 +4208,10 @@ select.selectmenu.wide {
   bottom: 0;
   border-radius: 20px;
 
-  /* 🔸 Sarıdan transparana yumuşak geçiş */
-  background: linear-gradient(
-    90deg,
-    rgba(255, 204, 0, 1) 0%,        /* tam sarı başlangıç */
-    rgba(255, 221, 0, 0.93) 35%,   /* yumuşak geçiş */
-    rgb(255, 213, 0) 55%,   /* daha saydam ton */
-    rgba(211, 211, 40, 0) 80%      /* resme karışarak kaybolur */
-  );
+  /* 🔸 YENİ: Sarı tonlu degrade arka plan */
+  background: linear-gradient(89.46deg, #e89a1d 0%, #ffb833 100%);
 
   z-index: 1;
-  transition: all 0.5s ease;
-}
-
-.cta-one__title,
-.cta-one__contact-box .content>p,
-.cta-one__contact-box .content>h3,
-.cta-one__contact-box .content>h3>a {
-  color: #111 !important; /* siyah metin */
 }
 
 .cta-one__bg-img {
@@ -9306,53 +9292,4 @@ html, body, #root, .page-wrapper {
   padding: 12px 30px;
   border-radius: 6px;
   transition: all 1s ease;
-}
-
-/* --- Footer “Powered by ensgky” premium efekti --- */
-.footer-credit-link {
-  color: #ffcc00;
-  font-weight: 600;
-  text-decoration: none;
-  position: relative;
-  display: inline-block;
-  transition: all 0.4s ease;
-}
-
-/* Altından geçen çizgi */
-.footer-credit-link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 0%;
-  height: 2px;
-  background: linear-gradient(90deg, #ffcc00, #ffffff);
-  transition: width 0.4s ease;
-}
-
-/* Üzerinden geçen ışık */
-.footer-credit-link::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -75%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.5), transparent);
-  transform: skewX(-20deg);
-  transition: all 0.6s ease;
-}
-
-/* Hover efekti */
-.footer-credit-link:hover {
-  color: #fff;
-  text-shadow: 0 0 8px rgba(255, 204, 0, 0.8);
-}
-
-.footer-credit-link:hover::after {
-  width: 100%;
-}
-
-.footer-credit-link:hover::before {
-  left: 120%;
 }
