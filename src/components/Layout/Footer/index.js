@@ -103,8 +103,15 @@ const Footer = () => {
           <div className="container">
             <div className="site-footer__bottom-inner justify-content-center text-center">
               <p className="site-footer__bottom-text">
-                © 2025 MöbelTaxi Umzug. Alle Rechte vorbehalten.
-              </p>
+  © 2025 MöbelTaxi Umzug. Alle Rechte vorbehalten. | 
+  <a
+  href="/"
+  onClick={(e) => e.preventDefault()}
+  className="footer-credit-link"
+>
+  Powered by ensgky
+</a>
+</p>
             </div>
           </div>
         </div>
