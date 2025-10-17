@@ -4,6 +4,7 @@ import CtaSection from "../../components/Common/CtaSection";
 import bannerbg from "../../assets/images/resources/cta-one-bg-img.jpg";
 import shapeImageUrl from "../../assets/images/shapes/cta-one-shape-1.png";
 import ContactMainImg from "../../assets/images/resources/contact-two-img-1.jpg";
+import { Link } from "react-router-dom";
 
 // ✅ Ortak İletişim Formu Bileşeni
 function ContactFormSection() {
@@ -74,7 +75,9 @@ function ContactFormSection() {
             required
           />
           Ich habe die{" "}
-          <a href="/datenschutzerklaerung" target="_blank" rel="noreferrer">Datenschutzerklärung</a>{" "}
+          <Link to="/datenschutz" target="_blank" rel="noopener noreferrer">
+  Datenschutzerklärung
+</Link>{" "}
           gelesen und stimme zu.
         </label>
 

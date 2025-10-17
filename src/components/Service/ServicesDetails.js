@@ -1,142 +1,227 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useMemo } from "react";
+import { useParams, Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
+import { motion } from "framer-motion";
+import "./ServicesDetails.css";
 
-const ServicesDetails = ({ 
-    client, 
-    services, 
-    getTouch, 
-    details, 
-    faqData 
-}) => {
-    const [isActive, setIsActive] = useState({ key: null });
+const SERVICES = [
+  {
+    id: 1,
+    title: "🏠 Umzüge (Wohnung, WG, Pflegeheim, Büro)",
+    headline: "🇩🇪 5. Umzug in Berlin – Stressfrei & Zuverlässig",
+    description: `
+<h3>Ein Umzug in Berlin kann anstrengend sein – mit Möbel Taxi & Umzug wird er unkompliziert!</h3>
+<p>Wir planen, tragen, transportieren und montieren – Sie entspannen.<br/>
+Unsere erfahrenen Umzugshelfer arbeiten zuverlässig, sorgfältig und pünktlich.</p>
 
-    const handleToggle = (key) => {
-        setIsActive(isActive.key === key ? { key: null } : { key });
-    };
+<h3>Vorteile:</h3>
+<ul>
+<li>Professionelle Umzugshelfer mit Erfahrung</li>
+<li>Umzug ab 40 € in Berlin</li>
+<li>Versicherung inklusive</li>
+<li>Kostenlose Beratung & Angebot</li>
+</ul>
 
+<h3>Unser Service:</h3>
+<ul>
+<li>Privatumzüge & Firmenumzüge</li>
+<li>Studentenumzüge & Mini-Umzüge</li>
+<li>Verpackungsservice & Montagehilfe</li>
+<li>Transporte deutschlandweit</li>
+</ul>
+
+<p>📞 Telefon & WhatsApp: +49 1577 1677034<br/>
+📧 E-Mail: moebeltaxiumzug@gmail.com<br/>
+📸 Instagram: @mobeltaxiumzug</p>
+`,
+  },
+  {
+    id: 2,
+    title: "🛋️ Möbeltransporte & Mini-Umzüge",
+    headline: "🇩🇪 1. Möbeltransporte in Berlin – Schnell, Sicher & Günstig",
+    description: `
+<p>Ein Umzug oder Möbeltransport muss nicht stressig sein. Mit Möbel Taxi & Umzug Berlin 
+haben Sie einen zuverlässigen Partner an Ihrer Seite. Unser erfahrenes Team transportiert Ihre Möbel sicher, schnell und professionell – egal ob innerhalb Berlins oder deutschlandweit.</p>
+
+<p>Wir bieten Möbeltransporte ab 40 € in Berlin an – ideal für kleine Transporte, einzelne Möbelstücke oder komplette Haushalte.</p>
+
+<h3>Vorteile:</h3>
+<ul>
+<li>Zuverlässiger & erfahrener Transportservice</li>
+<li>Geschulte Mitarbeiter mit Sorgfalt im Umgang mit Möbeln</li>
+<li>Schnelle Termine & flexible Einsatzzeiten</li>
+<li>Versicherungsschutz für alle Transporte</li>
+<li>Faire Preise ohne versteckte Kosten</li>
+</ul>
+
+<h3>Unser Service:</h3>
+<ul>
+<li>Möbeltransporte für Privat- und Geschäftskunden</li>
+<li>Abholung & Lieferung von Möbeln (z. B. IKEA, Poco, Roller)</li>
+<li>Transport einzelner Möbel oder kompletter Haushalte</li>
+<li>Demontage & Montage auf Wunsch</li>
+<li>Innerhalb Berlins & deutschlandweit</li>
+</ul>
+`,
+  },
+  {
+    id: 3,
+    title: "♻️ Entrümpelung & Sperrmüllentsorgung",
+    headline: "🇩🇪 2. Entrümpelung in Berlin – Schnell & Diskret",
+    description: `
+<p>Ob Wohnung, Keller oder Büro – wir übernehmen Entrümpelungen aller Art. Unser Team arbeitet diskret, schnell und umweltbewusst. Möbel Taxi & Umzug Berlin sorgt dafür, dass Ihre Räumlichkeiten schnell wieder sauber und nutzbar sind.</p>
+
+<h3>Vorteile:</h3>
+<ul>
+<li>Zuverlässig & termintreu</li>
+<li>Fachgerechte Entsorgung nach Berliner Vorschriften</li>
+<li>Faire Pauschalpreise</li>
+<li>Auch kurzfristige Termine möglich</li>
+</ul>
+
+<h3>Unser Service:</h3>
+<ul>
+<li>Haushaltsauflösungen</li>
+<li>Keller- & Dachbodenentrümpelungen</li>
+<li>Büro- & Firmenauflösungen</li>
+<li>Entsorgung von Möbeln, Elektrogeräten & Sperrmüll</li>
+</ul>
+
+<p>📞 Telefon & WhatsApp: +49 1577 1677034<br/>
+📧 E-Mail: moebeltaxiumzug@gmail.com<br/>
+📸 Instagram: @mobeltaxiumzug</p>
+`,
+  },
+  {
+    id: 4,
+    title: "🔧 Möbelmontage <br/> & <br/> Demontage Service",
+    headline: "🇩🇪 8. Möbelmontage in Berlin – Professionell & Präzise",
+    description: `
+<p>Möbelmontage kann Zeit und Nerven kosten. Unser erfahrenes Team übernimmt den Aufbau Ihrer Möbel schnell und fachgerecht – ob IKEA, Poco oder andere Marken.</p>
+
+<h3>Vorteile:</h3>
+<ul>
+<li>Fachgerechte Montage aller Möbeltypen</li>
+<li>Auch Demontage & Wiederaufbau möglich</li>
+<li>Werkzeug & Material immer dabei</li>
+<li>Pünktlich, sauber & zuverlässig</li>
+</ul>
+
+<h3>Unser Service:</h3>
+<ul>
+<li>Aufbau von Schränken, Betten, Küchen & Regalen</li>
+<li>Möbelmontage nach Umzügen</li>
+<li>Hilfe bei Neuanschaffungen oder Umbauten</li>
+</ul>
+
+<p>📞 Telefon & WhatsApp: +49 1577 1677034<br/>
+📧 E-Mail: moebeltaxiumzug@gmail.com<br/>
+📸 Instagram: @mobeltaxiumzug</p>
+`,
+  },
+  {
+    id: 5,
+    title: "🏡 Gartenarbeiten: Rasenmähen, Laub Sammeln, Gartenabfälle Entsorgen, Müllentsorgung",
+    headline: "🇩🇪 6. Gartenpflege & Entsorgung in Berlin",
+    description: `
+<p>Ein gepflegter Garten sorgt für Wohlbefinden – und wir helfen dabei! Unser Team kümmert sich um Gartenpflege, Grünschnitt und die fachgerechte Entsorgung aller Abfälle.</p>
+
+<h3>Vorteile:</h3>
+<ul>
+<li>Zuverlässiger Gartenservice in Berlin</li>
+<li>Fachgerechte Entsorgung von Grünabfällen</li>
+<li>Faire Preise & pünktliche Arbeit</li>
+<li>Ideal für Privathaushalte & Gewerbe</li>
+</ul>
+
+<h3>Unser Service:</h3>
+<ul>
+<li>Rasenmähen, Heckenschneiden, Laubentsorgung</li>
+<li>Entrümpelung von Gärten & Außenanlagen</li>
+<li>Abtransport von Gartenabfällen</li>
+</ul>
+
+<p>📞 Telefon & WhatsApp: +49 1577 1677034<br/>
+📧 E-Mail: moebeltaxiumzug@gmail.com<br/>
+📸 Instagram: @mobeltaxiumzug</p>
+`,
+  },
+  {
+    id: 6,
+    title: "🛒 Lieferung & Aufbau Ihrer Einkäufe von IKEA, Poco, Höffner & Co.",
+    headline: "🇩🇪 4. Möbel Taxi – IKEA, Poco & Co. Lieferungen in Berlin",
+    description: `
+<p>Keine Lust, schwere Möbel selbst zu transportieren? Mit unserem Möbel Taxi Berlin liefern wir Ihre Einkäufe direkt von IKEA, Poco oder Roller sicher zu Ihnen nach Hause – ab 40 €!</p>
+
+<h3>Vorteile:</h3>
+<ul>
+<li>Schnelle Lieferung am selben Tag möglich</li>
+<li>Sicherer Transport Ihrer neuen Möbel</li>
+<li>Auf Wunsch inkl. Aufbau & Verpackungsentsorgung</li>
+<li>Flexible Termine – auch abends oder am Wochenende</li>
+</ul>
+
+<p>📞 Telefon & WhatsApp: +49 1577 1677034<br/>
+📧 E-Mail: moebeltaxiumzug@gmail.com<br/>
+📸 Instagram: @mobeltaxiumzug</p>
+`,
+  },
+];
+
+const ServiceDetails = () => {
+  const { id } = useParams();
+  const service = useMemo(() => SERVICES.find((s) => s.id === Number(id)), [id]);
+
+  if (!service) {
     return (
-        <section className="services-details">
-            <div className="container">
-                <div className="row">
-                    <div className="col-xl-4 col-lg-5">
-                        <div className="services-details__left">
-                            <div className="services-details__client-box">
-                                <div className="services-details__client-img">
-                                    <img src={client.image} alt={client.name} />
-                                </div>
-                                <h3 className="services-details__client-name">{client.name}</h3>
-                                <p className="services-details__client-sub-title">{client.title}</p>
-                                <p className="services-details__client-text">{client.text}</p>
-                                <h3 className="services-details__client-number">
-                                    <Link to={`tel:${client.phone}`}>{client.phone}</Link>
-                                </h3>
-                                <div className="services-details__client-social">
-                                    {client.socials.map((social, index) => (
-                                        <Link key={index} to={social.link}>
-                                            <span className={social.icon} />
-                                        </Link>
-                                    ))}
-                                </div>
-                            </div>
-                            <div className="services-details__services-box">
-                                <h3 className="services-details__services-list-title">Our Services</h3>
-                                <ul className="services-details__service-list list-unstyled">
-                                    {services.map((service, index) => (
-                                        <li key={index} className={service.active ? 'active' : ''}>
-                                            <div className="icon">
-                                                <span className="icon-dabble-arrow" />
-                                            </div>
-                                            <p>
-                                                <Link to={service.link}>{service.name}</Link>
-                                            </p>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                            <div className="services-details__get-touch">
-                                <div
-                                    className="services-details__get-touch-bg"
-                                    style={{ backgroundImage: `url(${getTouch.background})` }}
-                                ></div>
-                                <h3 className="services-details__get-touch-title">{getTouch.title}</h3>
-                                <p className="services-details__get-touch-sub-title">{getTouch.subTitle}</p>
-                                <div className="services-details__get-touch-icon">
-                                    <span className={getTouch.icon} />
-                                </div>
-                                <h3 className="services-details__get-touch-number">
-                                    <Link to={`tel:${getTouch.phone}`}>{getTouch.phone}</Link>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-xl-8 col-lg-7">
-                        <div className="services-details__right">
-                            <h3 className="services-details__title-1">{details.title}</h3>
-                            <p className="services-details__text-1">{details.text1}</p>
-                            <div className="services-details__img-1">
-                                <img src={details.image1} alt="" />
-                            </div>
-                            <div className="services-details__service-box">
-                                <div className="row">
-                                    {details.serviceBoxes.map((serviceBox, index) => (
-                                        <div key={index} className="col-xl-6 col-lg-6">
-                                            <div className="services-details__service-single">
-                                                <div className="services-details__service-icon">
-                                                    <span className={serviceBox.icon} />
-                                                </div>
-                                                <h3 className="services-details__service-title">
-                                                    <Link to={serviceBox.link}>{serviceBox.title}</Link>
-                                                </h3>
-                                                <p className="services-details__service-text">{serviceBox.text}</p>
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                            <p className="services-details__text-2">{details.text2}</p>
-                            <div className="services-details__faq">
-                                <div className="accrodion-grp faq-one-accrodion" data-grp-name="faq-one-accrodion-1">
-                                    {faqData.map((faq, index) => (
-                                        <div key={index} className={isActive.key === index ? "accrodion active" : "accrodion"} onClick={() => handleToggle(index)}>
-                                            <div className="accrodion-count" />
-                                            <div className="accrodion-title">
-                                                <h4>{faq.question}</h4>
-                                            </div>
-                                            <div className={isActive.key === index ? "accrodion-content current" : "accrodion-content"}>
-                                                <div className="inner">
-                                                    <p>{faq.answer}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                                <div className="blog-details__pagenation-box">
-                                    <ul className="list-unstyled blog-details__pagenation">
-                                        <li>
-                                            <div className="icon">
-                                                <Link to={details.prevLink}>
-                                                    <span className="icon-arrow-left" />
-                                                </Link>
-                                            </div>
-                                            <p>{details.prevText}</p>
-                                        </li>
-                                        <li>
-                                            <p>{details.nextText}</p>
-                                            <div className="icon">
-                                                <Link to={details.nextLink}>
-                                                    <span className="icon-arrow-right" />
-                                                </Link>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+      <div className="text-center py-5">
+        <h2>Service nicht gefunden</h2>
+        <Link to="/services" className="back-btn">
+          ← Zurück zu den Services
+        </Link>
+      </div>
     );
+  }
+
+  return (
+    <motion.section
+      className="service-details"
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+    >
+      <Helmet>
+        <title>{service.title} | Möbel Taxi & Umzug Berlin</title>
+        <meta name="description" content={service.headline} />
+        <meta
+          name="keywords"
+          content={`Umzug Berlin, ${service.title}, Möbeltransport, Möbel Taxi Berlin`}
+        />
+      </Helmet>
+
+      <div className="container">
+        <div className="back-button-container">
+          <Link to="/services" className="back-btn">
+            ← Zurück zu den Services
+          </Link>
+        </div>
+
+        <motion.div
+          className="service-details-card"
+          initial={{ opacity: 0, scale: 0.97 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <h1 className="service-title">{service.headline}</h1>
+          <h2 className="service-subtitle">{service.title}</h2>
+          <div
+            className="service-content"
+            dangerouslySetInnerHTML={{ __html: service.description }}
+          />
+        </motion.div>
+      </div>
+    </motion.section>
+  );
 };
 
-export default ServicesDetails;
+export default ServiceDetails;

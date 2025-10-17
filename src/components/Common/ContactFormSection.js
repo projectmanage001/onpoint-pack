@@ -1,6 +1,7 @@
 // src/components/Common/ContactFormSection.js
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import { Link } from "react-router-dom";
 
 function ContactFormSection() {
   const form = useRef();
@@ -70,9 +71,9 @@ function ContactFormSection() {
             required
           />
           Ich habe die{" "}
-          <a href="/datenschutzerklaerung" target="_blank" rel="noreferrer">
-            Datenschutzerklärung
-          </a>{" "}
+          <Link to="/datenschutz" target="_blank" rel="noopener noreferrer">
+  Datenschutzerklärung
+</Link>{" "}
           gelesen und stimme zu.
         </label>
 

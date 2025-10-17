@@ -1,0 +1,58 @@
+.datenschutz-section {
+  background: #f8f9fa;
+  padding: 80px 0;
+  min-height: 100vh;
+}
+
+.datenschutz-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 30px;
+}
+
+.datenschutz-updated {
+  text-align: center;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.datenschutz-content {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.datenschutz-content h2 {
+  margin-top: 25px;
+  font-size: 22px;
+  color: #111;
+}
+
+.datenschutz-content p,
+.datenschutz-content li {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #333;
+}
+
+.back-btn {
+  display: inline-block;
+  margin-top: 40px;
+  background: #ffcc00;
+  color: #000;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.back-btn:hover {
+  background: #000;
+  color: #fff;
+}

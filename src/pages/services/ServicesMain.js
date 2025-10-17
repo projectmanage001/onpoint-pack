@@ -1,46 +1,14 @@
 import React from "react";
-import ServiceItem from "../../components/Service/ServiceItem";
+import ServiceCard from "../../components/Service/ServiceCard";
 
 const ServicesMain = () => {
   const services = [
-    {
-      iconClass: "icon-postbox",
-      title: "🏠 Umzüge (Wohnung, WG, Pflegeheim, Büro)",
-      link: "/services/umzug",
-    },
-    {
-      iconClass: "icon-customer-service",
-      title: "🛋️ Möbeltransporte & Mini-Umzüge",
-      link: "/services/mobeltransporte",
-    },
-    {
-      iconClass: "icon-container",
-      title: "♻️ Entrümpelung & Sperrmüllentsorgung",
-      link: "/services/entruempelung",
-    },
-    {
-      iconClass: "icon-shipping",
-      title: (
-        <>
-          🔧 <br />
-          Möbelmontage & <br />
-          Demontage Service
-        </>
-      ),
-      link: "/services/montage",
-    },
-    {
-      iconClass: "icon-crane",
-      title:
-        "🏡 Gartenarbeiten: Rasenmähen, Laub sammeln, Gartenabfälle entsorgen, Müllentsorgung",
-      link: "/services/gartenpflege",
-    },
-    {
-      iconClass: "icon-conveyor-1",
-      title:
-        "🛒 Lieferung & Aufbau Ihrer Einkäufe von IKEA, Poco, Höffner & Co.",
-      link: "/services/lieferung",
-    },
+    { id: 1, iconClass: "icon-postbox", title: "🏠 Umzüge (Wohnung, WG, Pflegeheim, Büro)" },
+    { id: 2, iconClass: "icon-customer-service", title: "🛋️ Möbeltransporte & Mini-Umzüge" },
+    { id: 3, iconClass: "icon-container", title: "♻️ Entrümpelung & Sperrmüllentsorgung" },
+    { id: 4, iconClass: "icon-shipping",   title: "🔧 Möbelmontage <br/> & <br/> Demontage Service"  },
+    { id: 5, iconClass: "icon-crane", title: "🏡 Gartenarbeiten: Rasenmähen, Laub sammeln, Gartenabfälle entsorgen, Müllentsorgung" },
+    { id: 6, iconClass: "icon-conveyor-1", title: "🛒 Lieferung & Aufbau Ihrer Einkäufe von IKEA, Poco, Höffner & Co." },
   ];
 
   return (
@@ -48,13 +16,13 @@ const ServicesMain = () => {
       <div className="container">
         <div className="row">
           {services.map((service, index) => (
-            <div key={index} className="col-xl-4 col-lg-4 mb-4">
-              <ServiceItem
-                iconClass={service.iconClass}
-                title={service.title}
-                link={service.link}
-              />
-            </div>
+            <ServiceCard
+              key={service.id}
+              id={service.id}
+              iconClass={service.iconClass}
+              title={service.title}
+              delay={index * 0.15}
+            />
           ))}
         </div>
       </div>

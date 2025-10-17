@@ -9280,3 +9280,13 @@ html, body, #root, .page-wrapper {
   color: #000 !important;
   transform: scale(1.03);
 }
+
+.yellow-btn:hover::after {
+  background-color: #ffcc00 !important; /* sarı arka plan */
+  color: #ffffff !important; /* siyah yazı */
+  border: none;
+  font-weight: 600;
+  padding: 12px 30px;
+  border-radius: 6px;
+  transition: all 1s ease;
+}

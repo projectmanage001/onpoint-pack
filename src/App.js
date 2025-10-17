@@ -1,7 +1,8 @@
 import React, { Suspense, lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async"; // 🧠 SEO provider eklendi
-import ServiceDetails from "./pages/services/ServiceDetails";
+import ServiceDetails from "./components/Service/ServicesDetails";
+import Datenschutz from "./pages/datenschutz/Datenschutz";
 
 // ✨ Sayfaları lazy-load (tembel yükleme) yap
 const Home = lazy(() => import("./pages/home"));
@@ -60,6 +61,7 @@ export default function App() {
             <Route path="contact" element={<Contact />} />
             <Route path="services" element={<Services />} />
             <Route path="services/:id" element={<ServiceDetails />} />
+            <Route path="/datenschutz" element={<Datenschutz />} />
           </Routes>
         </Suspense>
       </BrowserRouter>
