@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async"; // 🧠 SEO provider eklendi
 import ServiceDetails from "./components/Service/ServicesDetails";
 import Datenschutz from "./pages/datenschutz/Datenschutz";
+import CookieConsent from "./components/Common/CookieConsent";
 
 // ✨ Sayfaları lazy-load (tembel yükleme) yap
 const Home = lazy(() => import("./pages/home"));
@@ -62,9 +63,12 @@ export default function App() {
             <Route path="services" element={<Services />} />
             <Route path="services/:id" element={<ServiceDetails />} />
             <Route path="/datenschutz" element={<Datenschutz />} />
+            <Route path="/datenschutzerklaerung" element={<Datenschutz />} /> {/* 👈 Ek rota */}
           </Routes>
         </Suspense>
+          <CookieConsent />
       </BrowserRouter>
     </HelmetProvider>
   );
 }
+
