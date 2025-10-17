@@ -4204,15 +4204,23 @@ select.selectmenu.wide {
   position: absolute;
   top: 0;
   left: 0;
+  right: 0;
   bottom: 0;
-  width: 55%; /* 🔸 sadece sol tarafı boyar */
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
+  border-radius: 20px;
 
-  /* 🔸 markanın sarı tonunda yumuşak geçiş */
-  background: linear-gradient(90deg, #ffcc00 0%, #ffd633 100%);
+  /* 🔸 Sarıdan transparana yumuşak geçiş */
+  background: linear-gradient(
+    90deg,
+    rgba(255, 204, 0, 1) 0%,        /* tam sarı başlangıç */
+    rgba(255, 221, 0, 0.93) 35%,   /* yumuşak geçiş */
+    rgb(255, 213, 0) 55%,   /* daha saydam ton */
+    rgba(211, 211, 40, 0) 80%      /* resme karışarak kaybolur */
+  );
+
   z-index: 1;
+  transition: all 0.5s ease;
 }
+
 .cta-one__title,
 .cta-one__contact-box .content>p,
 .cta-one__contact-box .content>h3,
