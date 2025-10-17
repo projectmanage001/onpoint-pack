@@ -9293,3 +9293,52 @@ html, body, #root, .page-wrapper {
   border-radius: 6px;
   transition: all 1s ease;
 }
+
+/* --- Footer “Powered by ensgky” premium efekti --- */
+.footer-credit-link {
+  color: #ffcc00;
+  font-weight: 600;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  transition: all 0.4s ease;
+}
+
+/* Altından geçen çizgi */
+.footer-credit-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #ffcc00, #ffffff);
+  transition: width 0.4s ease;
+}
+
+/* Üzerinden geçen ışık */
+.footer-credit-link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.5), transparent);
+  transform: skewX(-20deg);
+  transition: all 0.6s ease;
+}
+
+/* Hover efekti */
+.footer-credit-link:hover {
+  color: #fff;
+  text-shadow: 0 0 8px rgba(255, 204, 0, 0.8);
+}
+
+.footer-credit-link:hover::after {
+  width: 100%;
+}
+
+.footer-credit-link:hover::before {
+  left: 120%;
+}
