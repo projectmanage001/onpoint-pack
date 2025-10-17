@@ -9342,3 +9342,10 @@ html, body, #root, .page-wrapper {
 .footer-credit-link:hover::before {
   left: 120%;
 }
+
+.cta-one__title,
+.cta-one__contact-box .content>p,
+.cta-one__contact-box .content>h3,
+.cta-one__contact-box .content>h3>a {
+  color: #111 !important; /* siyah metin */
+}
