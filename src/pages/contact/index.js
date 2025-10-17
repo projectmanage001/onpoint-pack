@@ -40,8 +40,8 @@ const Contact = () => {
             />
             {/* SiteBreadcrumb */}
             <SiteBreadcrumb
-                pageTitle="Contact Us"
-                pageName="Contact Us"
+                pageTitle="Kontakt"
+                pageName="Kontakt"
                 breadcrumbsImg={bannerbg}
             />
             {/* SiteBreadcrumb */}

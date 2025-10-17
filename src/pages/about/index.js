@@ -40,8 +40,8 @@ const About = () => {
         />
         {/* SiteBreadcrumb */}
         <SiteBreadcrumb
-            pageTitle="About US"
-            pageName="About US"
+            pageTitle="Über Uns"
+            pageName="Über Uns"
             breadcrumbsImg={bannerbg}
         />
         {/* SiteBreadcrumb */}
