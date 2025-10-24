@@ -1,0 +1,68 @@
+/* src/pages/about/AboutPayments.css */
+
+.payment-methods {
+  position: relative;
+  padding: 32px 0 8px;
+  background: #fff;
+}
+
+.payment-methods__title {
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 18px;
+  color: #111;
+}
+
+.payment-methods__wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.payment-methods__item {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 10px 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  min-width: 180px;
+  max-width: 220px;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.payment-methods__item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.09);
+}
+
+.payment-methods__item img {
+  display: block;
+  margin: 0 auto 8px;
+  height: 34px;           /* 🔹 küçük ve rahatsız etmeyen boyut */
+  width: auto;            /* oranı korur */
+  object-fit: contain;
+  filter: saturate(1);
+}
+
+.payment-methods__item figcaption {
+  font-size: 13px;
+  color: #444;
+  line-height: 1.25;
+}
+
+/* Mobil uyum */
+@media (max-width: 575px) {
+  .payment-methods__wrap {
+    gap: 12px;
+  }
+  .payment-methods__item {
+    min-width: 150px;
+    padding: 10px 12px;
+  }
+  .payment-methods__item img {
+    height: 30px;
+  }
+}

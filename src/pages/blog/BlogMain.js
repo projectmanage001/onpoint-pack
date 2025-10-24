@@ -1,6 +1,9 @@
-import React, { useMemo } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+// src/pages/blog/index.js
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+
+import ContactFormSection from '../../components/Common/ContactFormSection'; // ✅ form eklendi
 
 import Img1 from '../../assets/images/blog/blog-1.jpg';
 import Img2 from '../../assets/images/blog/blog-2.jpg';
@@ -87,24 +90,7 @@ const ALL_POSTS = [
   },
 ];
 
-const POSTS_PER_PAGE = 3;
-
 const BlogMain = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const currentPage = Number(searchParams.get('page') || 1);
-
-  const totalPages = Math.ceil(ALL_POSTS.length / POSTS_PER_PAGE);
-  const currentPosts = useMemo(() => {
-    const start = (currentPage - 1) * POSTS_PER_PAGE;
-    return ALL_POSTS.slice(start, start + POSTS_PER_PAGE);
-  }, [currentPage]);
-
-  const handlePage = (p) => {
-    if (p < 1 || p > totalPages) return;
-    setSearchParams({ page: String(p) });
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
     <React.Fragment>
       <Helmet>
@@ -122,7 +108,7 @@ const BlogMain = () => {
       <section className="blog-page py-5">
         <div className="container">
           <div className="row">
-            {currentPosts.map((post) => (
+            {ALL_POSTS.map((post) => (
               <article className="col-xl-4 col-lg-4 mb-4" key={post.id}>
                 <div className="blog-card">
                   <Link to={`/blog/${post.id}`} aria-label={post.title}>
@@ -150,27 +136,12 @@ const BlogMain = () => {
             ))}
           </div>
 
-          <nav className="text-center mt-4" aria-label="pagination">
-            <ul className="pg-pagination list-unstyled d-inline-flex">
-              {Array.from({ length: totalPages }).map((_, i) => {
-                const p = i + 1;
-                return (
-                  <li key={p} className="mx-2">
-                    <button
-                      onClick={() => handlePage(p)}
-                      className={`btn btn-sm ${
-                        currentPage === p ? 'btn-dark' : 'btn-outline-dark'
-                      }`}
-                    >
-                      {p}
-                    </button>
-                  </li>
-                );
-              })}
-            </ul>
-          </nav>
+          {/* ❌ Sayfalama kaldırıldı — tüm yazılar tek sayfada */}
         </div>
       </section>
+
+      {/* ✅ Footer’dan hemen önce global iletişim formu */}
+      <ContactFormSection />
     </React.Fragment>
   );
 };

@@ -1,6 +1,9 @@
+// src/components/Service/ServicesDetails.js
 import React, { useMemo } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { motion } from "framer-motion";
+import "./ServicesDetails.css"; // özel stiller (mevcut)
 
 const SERVICES = [
   {
@@ -47,7 +50,7 @@ const SERVICES = [
   },
   {
     id: "mobeltransporte",
-    title: "🇩🇪 1. Möbeltransporte in Berlin – Schnell, Sicher & Günstig",
+    title: "🇩🇪 1. Möbeltransporte in Berlin – Schnell, Sicher & Günstig ",
     description:
       "Zuverlässiger Möbeltransport ab 40 € in Berlin. Schnell, sicher, versichert – Möbel Taxi & Umzug transportiert Ihre Möbel professionell.",
     keywords:
@@ -85,7 +88,11 @@ const SERVICES = [
           <li>Demontage & Montage auf Wunsch</li>
           <li>Innerhalb Berlins & deutschlandweit</li>
         </ul>
+        
+      
+
       </>
+      
     ),
   },
   {
@@ -214,8 +221,7 @@ const SERVICES = [
   },
   {
     id: "lieferung",
-    title:
-      "🇩🇪 4. Möbel Taxi – IKEA, Poco & Co. Lieferungen in Berlin",
+    title: "🇩🇪 4. Möbel Taxi – IKEA, Poco & Co. Lieferungen in Berlin",
     description:
       "Schnelle und sichere Möbel Lieferung von IKEA, Poco oder Höffner direkt zu Ihnen nach Hause – ab 40 €!",
     keywords:
@@ -239,19 +245,60 @@ const SERVICES = [
       </>
     ),
   },
+
+  // ✅ YENİ: Senioren Umzug (7. servis)
+  {
+    id: "seniorenumzug",
+    title: "🇩🇪 7. Senioren Umzug & Hilfe beim Umzug für Ältere",
+    description:
+      "Ein Umzug im Alter ist eine besondere Herausforderung. Wir unterstützen Senioren mit Geduld, Einfühlungsvermögen und kompletter Organisation.",
+    keywords:
+      "Seniorenumzug Berlin, Umzug Senioren Hilfe, Senioren Umzug Berlin, Möbel Taxi & Umzug",
+    content: (
+      <>
+        <h1>👵 Senioren Umzug & Hilfe beim Umzug für Ältere</h1>
+        <p>
+          Ein Umzug im Alter ist eine besondere Herausforderung. Wir{" "}
+          <strong>unterstützen Senioren</strong> mit Geduld, Einfühlungsvermögen
+          und kompletter Organisation – von der Planung bis zur fertigen
+          Einrichtung.
+        </p>
+
+        <h2>⭐ Vorteile</h2>
+        <ul>
+          <li>Freundliches & hilfsbereites Team</li>
+          <li>Unterstützung beim Ein- & Auspacken</li>
+          <li>Möbeltransport, Aufbau & Entsorgung aus einer Hand</li>
+          <li>Zuverlässig, respektvoll & fair</li>
+        </ul>
+
+        <h2>📦 Unser Service</h2>
+        <ul>
+          <li>Komplettumzüge für Senioren</li>
+          <li>Begleitung und Unterstützung beim Wohnungswechsel</li>
+          <li>Entsorgung alter Möbel & Entrümpelung</li>
+        </ul>
+
+        <h3>📞 Kontakt</h3>
+        <ul>
+          <li>📞 Telefon & WhatsApp: +49 1577 1677034</li>
+          <li>📧 E-Mail: moebeltaxiumzug@gmail.com</li>
+          <li>📸 Instagram: @mobeltaxiumzug</li>
+        </ul>
+      </>
+    ),
+  },
 ];
 
 const ServiceDetails = () => {
   const { id } = useParams();
-  const service = useMemo(
-    () => SERVICES.find((s) => s.id === id),
-    [id]
-  );
+  const service = useMemo(() => SERVICES.find((s) => s.id === id), [id]);
 
   if (!service) {
     return (
       <div className="text-center py-5">
         <h2>Service nicht gefunden</h2>
+        <Link to="/services" className="back-btn">← Zurück zu den Services</Link>
       </div>
     );
   }
@@ -268,26 +315,43 @@ const ServiceDetails = () => {
   };
 
   return (
-    <>
+    <motion.section
+      className="service-details"
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+    >
       <Helmet>
         <title>{`${service.title} | Möbel Taxi & Umzug Berlin`}</title>
         <meta name="description" content={service.description} />
-        <meta name="keywords" content={service.keywords} />
+        <meta
+          name="keywords"
+          content={service.keywords || `Umzug Berlin, ${service.title}, Möbel Taxi Berlin`}
+        />
         <meta property="og:title" content={service.title} />
         <meta property="og:description" content={service.description} />
-        <script type="application/ld+json">
-          {JSON.stringify(schemaData)}
-        </script>
+        <script type="application/ld+json">{JSON.stringify(schemaData)}</script>
       </Helmet>
 
-      <section className="service-details py-5">
-        <div className="container">
-          <article style={{ lineHeight: "1.8", color: "#333" }}>
-            {service.content}
-          </article>
+      <div className="container">
+        <div className="back-button-container" style={{ marginBottom: 20 }}>
+          <Link to="/services" className="back-btn">
+            ← Zurück zu den Services
+          </Link>
         </div>
-      </section>
-    </>
+
+        <motion.article
+          className="service-details-card"
+          initial={{ opacity: 0, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          style={{ lineHeight: "1.8", color: "#333" }}
+        >
+          {/* H1/H2 hiyerarşisi içerik içinde sağlandı */}
+          {service.content}
+        </motion.article>
+      </div>
+    </motion.section>
   );
 };
 

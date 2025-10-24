@@ -1,0 +1,29 @@
+.footer-payments {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.footer-payments img {
+  height: 28px;
+  width: auto;
+  border-radius: 4px;
+  filter: brightness(0.95);
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.footer-payments img:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+@media (max-width: 575px) {
+  .footer-payments {
+    gap: 10px;
+  }
+  .footer-payments img {
+    height: 24px;
+  }
+}

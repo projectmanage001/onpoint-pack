@@ -166,6 +166,33 @@ haben Sie einen zuverlässigen Partner an Ihrer Seite. Unser erfahrenes Team tra
 📸 Instagram: @mobeltaxiumzug</p>
 `,
   },
+  {
+    id: 7,
+    title: "👵 Senioren Umzug & Hilfe beim Umzug für Ältere",
+    headline: "🇩🇪 7. Senioren Umzug & Hilfe beim Umzug für Ältere",
+    description: `
+<p>Ein Umzug im Alter ist eine besondere Herausforderung. Wir unterstützen Senioren mit Geduld, Einfühlungsvermögen und kompletter Organisation.</p>
+
+<h3>Vorteile:</h3>
+<ul>
+<li>Freundliches & hilfsbereites Team</li>
+<li>Unterstützung beim Ein- & Auspacken</li>
+<li>Möbeltransport, Aufbau & Entsorgung aus einer Hand</li>
+<li>Zuverlässig, respektvoll & fair</li>
+</ul>
+
+<h3>Unser Service:</h3>
+<ul>
+<li>Komplettumzüge für Senioren</li>
+<li>Begleitung und Unterstützung beim Wohnungswechsel</li>
+<li>Entsorgung alter Möbel & Entrümpelung</li>
+</ul>
+
+<p>📞 Telefon & WhatsApp: +49 1577 1677034<br/>
+📧 E-Mail: moebeltaxiumzug@gmail.com<br/>
+📸 Instagram: @mobeltaxiumzug</p>
+`,
+  },
 ];
 
 const ServiceDetails = () => {
@@ -183,6 +210,27 @@ const ServiceDetails = () => {
     );
   }
 
+  const canonicalUrl = `https://moebeltaxi-umzug.de/services/${id}`;
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: service.title,
+    description: service.headline,
+    areaServed: "Berlin",
+    provider: {
+      "@type": "LocalBusiness",
+      name: "Möbel Taxi & Umzug Berlin",
+      telephone: "+49 1577 1677034",
+      email: "moebeltaxiumzug@gmail.com",
+      url: "https://moebeltaxi-umzug.de",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Berlin",
+        addressCountry: "DE",
+      },
+    },
+  };
+
   return (
     <motion.section
       className="service-details"
@@ -195,8 +243,10 @@ const ServiceDetails = () => {
         <meta name="description" content={service.headline} />
         <meta
           name="keywords"
-          content={`Umzug Berlin, ${service.title}, Möbeltransport, Möbel Taxi Berlin`}
+          content={`Umzug Berlin, ${service.title}, Möbeltransport, Entrümpelung Berlin, Möbel Taxi Berlin`}
         />
+        <link rel="canonical" href={canonicalUrl} />
+        <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
 
       <div className="container">
@@ -213,7 +263,10 @@ const ServiceDetails = () => {
           transition={{ duration: 0.5 }}
         >
           <h1 className="service-title">{service.headline}</h1>
-          <h2 className="service-subtitle">{service.title}</h2>
+          <h2
+            className="service-subtitle"
+            dangerouslySetInnerHTML={{ __html: service.title }}
+          />
           <div
             className="service-content"
             dangerouslySetInnerHTML={{ __html: service.description }}
