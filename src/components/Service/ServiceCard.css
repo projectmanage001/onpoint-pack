@@ -1,0 +1,91 @@
+:root{
+  --card-radius: 18px;
+  --card-shadow: 0 10px 24px rgba(0,0,0,.08);
+  --card-shadow-hover: 0 16px 34px rgba(0,0,0,.12);
+  --card-border: rgba(0,0,0,.06);
+  --title-color: #0e0e10;
+  --muted: #666;
+  --btn-bg: #111;             /* küçük butonun zemin rengi */
+  --btn-text: #fff;           /* buton yazı rengi */
+  --btn-bg-hover: #000;       /* hover rengi */
+}
+
+/* Kart: sade, köşeli ve hafif gölge */
+.svc-min-card{
+  display:flex;
+  flex-direction:column;
+  background:#fff;
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  text-decoration:none;
+  color: inherit;
+  overflow:hidden;
+  border:1px solid var(--card-border);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.svc-min-card:hover{
+  transform: translateY(-4px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+/* Üst: görsel */
+.svc-min-card__media{
+  position: relative;
+  aspect-ratio: 16 / 9;          /* 📐 önerilen oran */
+  overflow: hidden;
+  background:#f2f3f5;
+}
+
+.svc-min-card__media img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  transform: scale(1.01);
+  transition: transform .45s ease, filter .45s ease;
+}
+
+.svc-min-card:hover .svc-min-card__media img{
+  transform: scale(1.035);       /* çok hafif yakınlaşma */
+  filter: saturate(1.03);
+}
+
+/* Başlık */
+.svc-min-card__title{
+  font-size:18px;
+  line-height:1.35;
+  font-weight:700;
+  color: var(--title-color);
+  margin: 14px 16px 10px;
+}
+
+/* Küçük ve zarif buton (tam genişlik değil) */
+.svc-min-card__btn{
+  align-self:flex-start;
+  margin: 0 16px 16px;
+  padding: 8px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 10px;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  transition: background .2s ease, transform .2s ease;
+}
+
+.svc-min-card:hover .svc-min-card__btn{
+  background: var(--btn-bg-hover);
+  transform: translateY(-1px);
+}
+
+/* Placeholder (görsel yoksa) */
+.svc-min-card__ph{
+  width:100%;
+  height:100%;
+  background: linear-gradient(180deg,#eceff3,#e7eaee);
+}
+
+/* Küçük ekran */
+@media (max-width: 575.98px){
+  .svc-min-card__title{ font-size:16px; }
+  .svc-min-card__btn{ padding:7px 12px; font-size:13px; }
+}
