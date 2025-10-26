@@ -40,8 +40,8 @@ const Services = () => {
         />
         {/* SiteBreadcrumb */}
         <SiteBreadcrumb
-            pageTitle="Möbeltaxi"
-            pageName="Möbeltaxi"
+            pageTitle="Leistungen"
+            pageName="Leistungen"
             breadcrumbsImg={bannerbg}
         />
         {/* SiteBreadcrumb */}

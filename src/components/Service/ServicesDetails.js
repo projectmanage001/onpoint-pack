@@ -8,7 +8,7 @@ const SERVICES = [
   {
     id: 1,
     title: "🏠 Umzüge (Wohnung, WG, Pflegeheim, Büro)",
-    headline: "🇩🇪 5. Umzug in Berlin – Stressfrei & Zuverlässig",
+    headline: "🇩🇪  Umzug in Berlin – Stressfrei & Zuverlässig",
     description: `
 <h3>Ein Umzug in Berlin kann anstrengend sein – mit Möbel Taxi & Umzug wird er unkompliziert!</h3>
 <p>Wir planen, tragen, transportieren und montieren – Sie entspannen.<br/>
@@ -38,7 +38,7 @@ Unsere erfahrenen Umzugshelfer arbeiten zuverlässig, sorgfältig und pünktlich
   {
     id: 2,
     title: "🛋️ Möbeltransporte & Mini-Umzüge",
-    headline: "🇩🇪 1. Möbeltransporte in Berlin – Schnell, Sicher & Günstig",
+    headline: "🇩🇪  Möbeltransporte in Berlin – Schnell, Sicher & Günstig",
     description: `
 <p>Ein Umzug oder Möbeltransport muss nicht stressig sein. Mit Möbel Taxi & Umzug Berlin 
 haben Sie einen zuverlässigen Partner an Ihrer Seite. Unser erfahrenes Team transportiert Ihre Möbel sicher, schnell und professionell – egal ob innerhalb Berlins oder deutschlandweit.</p>
@@ -67,7 +67,7 @@ haben Sie einen zuverlässigen Partner an Ihrer Seite. Unser erfahrenes Team tra
   {
     id: 3,
     title: "♻️ Entrümpelung & Sperrmüllentsorgung",
-    headline: "🇩🇪 2. Entrümpelung in Berlin – Schnell & Diskret",
+    headline: "🇩🇪  Entrümpelung in Berlin – Schnell & Diskret",
     description: `
 <p>Ob Wohnung, Keller oder Büro – wir übernehmen Entrümpelungen aller Art. Unser Team arbeitet diskret, schnell und umweltbewusst. Möbel Taxi & Umzug Berlin sorgt dafür, dass Ihre Räumlichkeiten schnell wieder sauber und nutzbar sind.</p>
 
@@ -95,7 +95,7 @@ haben Sie einen zuverlässigen Partner an Ihrer Seite. Unser erfahrenes Team tra
   {
     id: 4,
     title: "🔧 Möbelmontage <br/> & <br/> Demontage Service",
-    headline: "🇩🇪 8. Möbelmontage in Berlin – Professionell & Präzise",
+    headline: "🇩🇪 Möbelmontage in Berlin – Professionell & Präzise",
     description: `
 <p>Möbelmontage kann Zeit und Nerven kosten. Unser erfahrenes Team übernimmt den Aufbau Ihrer Möbel schnell und fachgerecht – ob IKEA, Poco oder andere Marken.</p>
 
@@ -122,7 +122,7 @@ haben Sie einen zuverlässigen Partner an Ihrer Seite. Unser erfahrenes Team tra
   {
     id: 5,
     title: "🏡 Gartenarbeiten: Rasenmähen, Laub Sammeln, Gartenabfälle Entsorgen, Müllentsorgung",
-    headline: "🇩🇪 6. Gartenpflege & Entsorgung in Berlin",
+    headline: "🇩🇪 Gartenpflege & Entsorgung in Berlin",
     description: `
 <p>Ein gepflegter Garten sorgt für Wohlbefinden – und wir helfen dabei! Unser Team kümmert sich um Gartenpflege, Grünschnitt und die fachgerechte Entsorgung aller Abfälle.</p>
 
@@ -149,7 +149,7 @@ haben Sie einen zuverlässigen Partner an Ihrer Seite. Unser erfahrenes Team tra
   {
     id: 6,
     title: "🛒 Lieferung & Aufbau Ihrer Einkäufe von IKEA, Poco, Höffner & Co.",
-    headline: "🇩🇪 4. Möbel Taxi – IKEA, Poco & Co. Lieferungen in Berlin",
+    headline: "🇩🇪 Möbel Taxi – IKEA, Poco & Co. Lieferungen in Berlin",
     description: `
 <p>Keine Lust, schwere Möbel selbst zu transportieren? Mit unserem Möbel Taxi Berlin liefern wir Ihre Einkäufe direkt von IKEA, Poco oder Roller sicher zu Ihnen nach Hause – ab 40 €!</p>
 
@@ -169,7 +169,7 @@ haben Sie einen zuverlässigen Partner an Ihrer Seite. Unser erfahrenes Team tra
   {
     id: 7,
     title: "👵 Senioren Umzug & Hilfe beim Umzug für Ältere",
-    headline: "🇩🇪 7. Senioren Umzug & Hilfe beim Umzug für Ältere",
+    headline: "🇩🇪 Senioren Umzug & Hilfe beim Umzug für Ältere",
     description: `
 <p>Ein Umzug im Alter ist eine besondere Herausforderung. Wir unterstützen Senioren mit Geduld, Einfühlungsvermögen und kompletter Organisation.</p>
 

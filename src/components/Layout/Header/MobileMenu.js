@@ -41,12 +41,12 @@ const MobileMenu = ({ handleMobileMenu }) => {
               </li>
               <li>
                 <Link to="/services" onClick={handleMobileMenu}>
-                  Möbeltaxi
+                  Leistungen
                 </Link>
               </li>
               <li>
                 <Link to="/blog" onClick={handleMobileMenu}>
-                  Leistungen
+                  Möbeltaxi
                 </Link>
               </li>
               <li>

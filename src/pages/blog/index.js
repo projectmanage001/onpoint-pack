@@ -39,8 +39,8 @@ const Blog = () => {
             />
             {/* SiteBreadcrumb */}
             <SiteBreadcrumb
-                pageTitle="Leistungen"
-                pageName="Leistungen"
+                pageTitle="Möbeltaxi"
+                pageName="Möbeltaxi"
                 breadcrumbsImg={bannerbg}
             />
             {/* SiteBreadcrumb */}
