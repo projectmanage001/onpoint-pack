@@ -36,7 +36,7 @@ const ServicesMain = () => {
     {
       id: 4,
       iconClass: "icon-shipping",
-      title: "🔧 Möbelmontage <br/> & <br/> Demontage Service",
+      title: "🔧 Möbelmontage <br/> &  Demontage Service",
       image: imgMontage,
     },
     {
