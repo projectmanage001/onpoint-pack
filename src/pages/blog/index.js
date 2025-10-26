@@ -39,8 +39,8 @@ const Blog = () => {
             />
             {/* SiteBreadcrumb */}
             <SiteBreadcrumb
-                pageTitle="Blog"
-                pageName="Blog"
+                pageTitle="Leistungen"
+                pageName="Leistungen"
                 breadcrumbsImg={bannerbg}
             />
             {/* SiteBreadcrumb */}

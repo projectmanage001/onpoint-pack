@@ -20,14 +20,14 @@ const MenuItems = ({ parentMenu, activeMenu }) => {
 
       <li className={parentMenu === "services" ? "current-menu-item" : ""}>
         <Link to="/services" className={activeMenu === "/services" ? "active-menu" : ""}>
-          Leistungen
+          MÖBELTAXİ
 
         </Link>
       </li>
 
       <li className={parentMenu === "blog" ? "current-menu-item" : ""}>
         <Link to="/blog" className={activeMenu === "/blog" ? "active-menu" : ""}>
-          Blog
+          LEİSTUNGEN
         </Link>
       </li>
 
