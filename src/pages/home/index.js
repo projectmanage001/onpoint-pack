@@ -8,6 +8,9 @@ import bannerbg from '../../assets/images/backgrounds/page-header-bg.jpg';
 import CtaSection from '../../components/Common/CtaSection';
 import shapeImageUrl from '../../assets/images/shapes/cta-one-shape-1.png';
 
+// ✅ Sabit banner görseli (tam genişlik, responsive yükseklik)
+import sabitBanner from '../../assets/images/backgrounds/sabit-banner.jpg';
+
 // 🔽 Servis kartları için bileşen ve görseller
 import ServiceCard from '../../components/Service/ServiceCard';
 import imgUmzug from '../../assets/images/services/umzug.jpg';
@@ -46,6 +49,34 @@ const Home = () => {
     <>
       <Header />
       <HomeMain />
+
+      {/* 🖼️ SABİT BANNER — Bannerın hemen altı */}
+      
+<section
+  className="fixed-hero-banner"
+  style={{
+    position: 'relative',
+    width: '100%',
+    overflow: 'hidden',
+    backgroundColor: '#000',
+  }}
+  aria-label="Möbel Taxi Berlin – Fiyatı uygun, hızlı ve güvenilir taşımacılık"
+>
+  <img
+    src={sabitBanner}
+    alt="Möbel Taxi Berlin sabit banner"
+    style={{
+      width: '100%',
+      height: 'clamp(240px, 40vw, 580px)',
+      objectFit: window.innerWidth > 1024 ? 'contain' : 'cover', // ✅ masaüstünde tamamı görünür
+      objectPosition: 'center center',
+      display: 'block',
+      backgroundColor: '#000',
+    }}
+    loading="eager"
+    fetchpriority="high"
+  />
+</section>
 
       {/* 🌟 SEO DOSTU TANITIM BÖLÜMÜ */}
       <section className="home-intro-section py-5" style={{ backgroundColor: '#fafafa' }}>

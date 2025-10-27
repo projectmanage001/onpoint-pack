@@ -59,10 +59,10 @@ function Banner() {
                               alt=""
                             />
                           </div>
-                          <p className="main-slider__sub-title">Bester Versand</p>
+                          <p className="main-slider__sub-title">MÖBEL TAXI & UMZUG</p>
                         </div>
                         <h2 className="main-slider__title">
-                          Zuverlässige <span>Reaktionsschnelle </span> <br /> Logistik
+                          MÖBEL TAXI  <span>FAHRER AB </span> <br /> 39€
                         </h2>
                         <p className="main-slider__text">
                           📍 Berlin & Umgebung – Schnell, zuverlässig und immer mit einem Lächeln unterwegs.
@@ -120,13 +120,14 @@ function Banner() {
                               alt=""
                             />
                           </div>
-                          <p className="main-slider__sub-title">Bester Versand</p>
+                          <p className="main-slider__sub-title">MÖBEL TAXI & UMZUG</p>
                         </div>
                         <h2 className="main-slider__title">
-                          Zuverlässige <span>Reaktionsschnelle </span> <br /> Logistik
+                          MEHR <span>ALS NUR </span> <br /> TRANSPORT
                         </h2>
                         <p className="main-slider__text">
-                          📍 Berlin & Umgebung – Schnell, zuverlässig und immer mit einem Lächeln unterwegs.
+                          Wir helfen beim Tragen, Aufbauen und Entsorgen.
+                           Alles aus einer Hand – stressfrei, professionell und günstig.
                         </p>
                         <div className="main-slider__btn-and-call-box">
                           <div className="main-slider__btn-box">
@@ -181,14 +182,14 @@ function Banner() {
                               alt=""
                             />
                           </div>
-                          <p className="main-slider__sub-title">Bester Versand</p>
+                          <p className="main-slider__sub-title">MÖBEL TAXI & UMZUG</p>
                         </div>
                         <h2 className="main-slider__title">
                           
-Zuverlässige <span>Reaktionsschnelle </span> <br /> Logistik
+ZUVERLÄSSIG <span>PÜNKTLICH </span> <br /> FAIR
                         </h2>
                         <p className="main-slider__text">
-                          📍 Berlin & Umgebung – Schnell, zuverlässig und immer mit einem Lächeln unterwegs.
+                          Ihr Partner für Möbeltransporte, Umzüge und Expresslieferungen.
                         </p>
                         <div className="main-slider__btn-and-call-box">
                           <div className="main-slider__btn-box">
