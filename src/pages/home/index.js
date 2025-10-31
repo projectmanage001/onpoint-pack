@@ -21,17 +21,27 @@ import imgGarten from '../../assets/images/services/garten.jpg';
 import imgLieferung from '../../assets/images/services/lieferung.jpg';
 import imgSenioren from '../../assets/images/services/senioren.jpg';
 
+// ✅ Yorumlar (footer'dan hemen önce gösterilecek)
+import TestimonialsPreview from '../../components/Testimonial/TestimonialsPreview';
+
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
-
-  const handleScroll = () => {
-    const scrollTop = window.scrollY;
-    setIsVisible(scrollTop > 300);
-  };
+  const [isDesktop, setIsDesktop] = useState(false); // ✅ banner object-fit için güvenli kontrol
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const onScroll = () => setIsVisible(window.scrollY > 300);
+    window.addEventListener('scroll', onScroll);
+
+    // ✅ genişlik takibi (SSR güvenli)
+    const mq = window.matchMedia('(min-width: 1024px)');
+    const apply = (e) => setIsDesktop(e.matches);
+    apply(mq);
+    mq.addEventListener ? mq.addEventListener('change', apply) : mq.addListener(apply);
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      mq.removeEventListener ? mq.removeEventListener('change', apply) : mq.removeListener(apply);
+    };
   }, []);
 
   // 🔹 Servis kartları verisi
@@ -51,32 +61,32 @@ const Home = () => {
       <HomeMain />
 
       {/* 🖼️ SABİT BANNER — Bannerın hemen altı */}
-      
-<section
-  className="fixed-hero-banner"
-  style={{
-    position: 'relative',
-    width: '100%',
-    overflow: 'hidden',
-    backgroundColor: '#000',
-  }}
-  aria-label="Möbel Taxi Berlin – Fiyatı uygun, hızlı ve güvenilir taşımacılık"
->
-  <img
-    src={sabitBanner}
-    alt="Möbel Taxi Berlin sabit banner"
-    style={{
-      width: '100%',
-      height: 'clamp(240px, 40vw, 580px)',
-      objectFit: window.innerWidth > 1024 ? 'contain' : 'cover', // ✅ masaüstünde tamamı görünür
-      objectPosition: 'center center',
-      display: 'block',
-      backgroundColor: '#000',
-    }}
-    loading="eager"
-    fetchpriority="high"
-  />
-</section>
+      <section
+        className="fixed-hero-banner"
+        style={{
+          position: 'relative',
+          width: '100%',
+          overflow: 'hidden',
+          backgroundColor: '#000',
+        }}
+        aria-label="Möbel Taxi Berlin – Fiyatı uygun, hızlı ve güvenilir taşımacılık"
+      >
+        <img
+          src={sabitBanner}
+          alt="Möbel Taxi Berlin sabit banner"
+          style={{
+            width: '100%',
+            height: 'clamp(240px, 40vw, 580px)',
+            objectFit: isDesktop ? 'contain' : 'cover', // ✅ masaüstünde tamamı görünür, mobilde taşma yok
+            objectPosition: 'center center',
+            display: 'block',
+            backgroundColor: '#000',
+          }}
+          loading="eager"
+          fetchpriority="high"
+          sizes="(min-width:1024px) 100vw, 100vw"
+        />
+      </section>
 
       {/* 🌟 SEO DOSTU TANITIM BÖLÜMÜ */}
       <section className="home-intro-section py-5" style={{ backgroundColor: '#fafafa' }}>
@@ -163,6 +173,9 @@ const Home = () => {
         text="Brauchen Sie Hilfe?"
         phoneNumber="+49 1577 1677034"
       />
+
+      {/* ⭐ YORUMLAR — Footer'dan hemen önce */}
+      <TestimonialsPreview className="my-5" gapBottom={96} />
 
       <BackToTop scroll={isVisible} />
       <Footer />

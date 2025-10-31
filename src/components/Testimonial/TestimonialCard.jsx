@@ -1,7 +1,6 @@
 import React from 'react';
 
 const TestimonialCard = ({ imageUrl, clientName, clientTitle, rating, testimonialText }) => {
-  // Helper function to generate star ratings
   const renderRating = () => {
     const stars = [];
     for (let i = 0; i < 5; i++) {
@@ -19,9 +18,7 @@ const TestimonialCard = ({ imageUrl, clientName, clientTitle, rating, testimonia
         <div className="testimonial-one__client-img">
           <img src={imageUrl} alt={clientName} />
         </div>
-        <div className="testimonial-one__ratting">
-          {renderRating()}
-        </div>
+        <div className="testimonial-one__ratting">{renderRating()}</div>
         <h3 className="testimonial-one__client-name">{clientName}</h3>
         <p className="testimonial-one__client-sub-title">{clientTitle}</p>
         <p className="testimonial-one__text">{testimonialText}</p>

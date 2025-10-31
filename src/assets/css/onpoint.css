@@ -9349,3 +9349,14 @@ html, body, #root, .page-wrapper {
 .cta-one__contact-box .content>h3>a {
   color: #111 !important; /* siyah metin */
 }
+
+/* Footer üst boşluklarını kıs */
+.site-footer__top {
+  padding-top: 28px !important;
+  padding-bottom: 28px !important;
+}
+
+/* Varsayılan fazladan marjin/padding varsa nötralize et */
+.site-footer {
+  margin-top: 0 !important;
+}
