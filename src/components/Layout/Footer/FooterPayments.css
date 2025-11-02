@@ -1,29 +1,47 @@
+/* Ödeme ikonları: büyük, rozet gibi görünüm */
 .footer-payments {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
+  gap: 20px;                 /* daha ferah aralık */
   flex-wrap: wrap;
+  padding: 8px 0;
 }
 
+/* DEV BOYUT: 56px–110px arası, ekrana göre ölçeklenir */
 .footer-payments img {
-  height: 28px;
+  height: clamp(56px, 8vw, 110px);
   width: auto;
-  border-radius: 4px;
-  filter: brightness(0.95);
-  transition: transform 0.25s ease, filter 0.25s ease;
+  background: #fff;          /* rozet hissi için arka plan */
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 12px;
+  padding: 10px 14px;        /* logonun etrafında nefes */
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  filter: none;              /* renkleri daha canlı bırak */
+  transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
 }
 
 .footer-payments img:hover {
-  transform: translateY(-2px);
-  filter: brightness(1.05);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 24px rgba(0,0,0,.12);
+  filter: saturate(1.05);
 }
 
+/* Küçük ekranlarda yine büyük kalsın ama biraz düşür */
 @media (max-width: 575px) {
   .footer-payments {
-    gap: 10px;
+    gap: 14px;
   }
   .footer-payments img {
-    height: 24px;
+    height: clamp(44px, 14vw, 72px);
+    padding: 8px 12px;
+    border-radius: 10px;
+  }
+}
+
+/* Çok geniş ekranlarda daha da büyütmek istersen (opsiyonel) */
+@media (min-width: 1400px) {
+  .footer-payments img {
+    height: clamp(72px, 7vw, 120px);
   }
 }

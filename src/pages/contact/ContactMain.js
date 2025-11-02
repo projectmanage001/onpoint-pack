@@ -1,4 +1,6 @@
+// src/pages/contact/index.js  (yada ContactMain bileşeni hangi dosyadaysa)
 import React, { useRef, useState } from "react";
+import { Helmet } from "react-helmet-async"; // ✅ SEO head
 import emailjs from "@emailjs/browser";
 import CtaSection from "../../components/Common/CtaSection";
 import bannerbg from "../../assets/images/resources/cta-one-bg-img.jpg";
@@ -14,6 +16,11 @@ function ContactFormSection() {
 
   const sendEmail = (e) => {
     e.preventDefault();
+
+    // Honeypot (bot) kontrolü
+    const hp = form.current?.querySelector('input[name="website"]')?.value;
+    if (hp) return; // bot doldurmuşsa gönderme
+
     if (!checked) {
       alert("Bitte bestätigen Sie die Datenschutzerklärung.");
       return;
@@ -34,41 +41,97 @@ function ContactFormSection() {
   };
 
   return (
-    <section className="section contact-section">
-      <h2 style={{ marginTop: "2rem", textAlign: "center" }}>Kontaktformular</h2>
-      <form ref={form} onSubmit={sendEmail} className="contact-form">
-        <label>Vorname<input type="text" name="vorname" required /></label>
-        <label>Nachname<input type="text" name="nachname" required /></label>
-        <label>E-Mail *<input type="email" name="email" required /></label>
-        <label>Telefonnummer *<input type="tel" name="telefonnummer" required /></label>
+    <section className="section contact-section" aria-labelledby="contactform-title">
+      <h2 id="contactform-title" style={{ marginTop: "2rem", textAlign: "center" }}>
+        Kontaktformular
+      </h2>
+
+      <form
+        ref={form}
+        onSubmit={sendEmail}
+        className="contact-form"
+        name="kontakt-form"
+        method="post"
+        noValidate
+      >
+        {/* Honeypot (gizli alan) */}
+        <input type="text" name="website" tabIndex="-1" autoComplete="off" style={{ display: "none" }} />
+
+        <label htmlFor="vorname">Vorname
+          <input id="vorname" type="text" name="vorname" autoComplete="given-name" required />
+        </label>
+
+        <label htmlFor="nachname">Nachname
+          <input id="nachname" type="text" name="nachname" autoComplete="family-name" required />
+        </label>
+
+        <label htmlFor="email">E-Mail *
+          <input id="email" type="email" name="email" autoComplete="email" required />
+        </label>
+
+        <label htmlFor="telefonnummer">Telefonnummer *
+          <input
+            id="telefonnummer"
+            type="tel"
+            name="telefonnummer"
+            inputMode="tel"
+            placeholder="+49 ..."
+            autoComplete="tel"
+            required
+          />
+        </label>
         <p>Wenn Sie einen Rückruf wünschen, bitte ausfüllen.</p>
-        <label>Bitte wählen Sie eine Option *
-          <select name="dienstleistung" required>
+
+        <label htmlFor="dienstleistung">Bitte wählen Sie eine Option *
+          <select id="dienstleistung" name="dienstleistung" required>
             <option value="">-- Bitte wählen --</option>
             <option>Umzüge</option><option>Möbeltransporte</option>
             <option>Entrümpelung</option><option>Montage</option>
             <option>Gartenarbeiten</option><option>Lieferung</option>
           </select>
         </label>
-        <label>Wie viele Träger benötigen Sie? *<input type="number" name="traeger" required /></label>
-        <label>Menge der Güter *<textarea name="menge" required></textarea></label>
-        <label>Von welchem Stockwerk abholen? *<input type="text" name="abholstock" required /></label>
-        <label>In welches Stockwerk liefern? *<input type="text" name="lieferstock" required /></label>
-       <label>Gibt es einen Aufzug im Gebäude? *
-  <select name="aufzug" required>
-    <option value="">-- Bitte wählen --</option>
-    <option>Ja, aber nur am Auszugsort.</option>
-    <option>Ja, aber nur am Einzugsort.</option>
-    <option>Ja, am Auszugs- & Einzugsort.</option>
-    <option>Nein, leider nicht.</option>
-  </select>
-</label>
-        <label>Abholadresse *<textarea name="abholadresse" required></textarea></label>
-        <label>Lieferadresse *<textarea name="lieferadresse" required></textarea></label>
-        <label>Kommentar oder Nachricht *<textarea name="nachricht" required></textarea></label>
+
+        <label htmlFor="traeger">Wie viele Träger benötigen Sie? *
+          <input id="traeger" type="number" name="traeger" min="1" step="1" required />
+        </label>
+
+        <label htmlFor="menge">Menge der Güter *
+          <textarea id="menge" name="menge" rows={3} required></textarea>
+        </label>
+
+        <label htmlFor="abholstock">Von welchem Stockwerk abholen? *
+          <input id="abholstock" type="text" name="abholstock" required />
+        </label>
+
+        <label htmlFor="lieferstock">In welches Stockwerk liefern? *
+          <input id="lieferstock" type="text" name="lieferstock" required />
+        </label>
+
+        <label htmlFor="aufzug">Gibt es einen Aufzug im Gebäude? *
+          <select id="aufzug" name="aufzug" required>
+            <option value="">-- Bitte wählen --</option>
+            <option>Ja, aber nur am Auszugsort.</option>
+            <option>Ja, aber nur am Einzugsort.</option>
+            <option>Ja, am Auszugs- & Einzugsort.</option>
+            <option>Nein, leider nicht.</option>
+          </select>
+        </label>
+
+        <label htmlFor="abholadresse">Abholadresse *
+          <textarea id="abholadresse" name="abholadresse" rows={2} required></textarea>
+        </label>
+
+        <label htmlFor="lieferadresse">Lieferadresse *
+          <textarea id="lieferadresse" name="lieferadresse" rows={2} required></textarea>
+        </label>
+
+        <label htmlFor="nachricht">Kommentar oder Nachricht *
+          <textarea id="nachricht" name="nachricht" rows={4} required></textarea>
+        </label>
 
         <label className="checkbox-label highlighted-checkbox">
           <input
+            id="ds-check"
             type="checkbox"
             checked={checked}
             onChange={() => setChecked(!checked)}
@@ -76,8 +139,8 @@ function ContactFormSection() {
           />
           Ich habe die{" "}
           <Link to="/datenschutz" target="_blank" rel="noopener noreferrer">
-  Datenschutzerklärung
-</Link>{" "}
+            Datenschutzerklärung
+          </Link>{" "}
           gelesen und stimme zu.
         </label>
 
@@ -88,18 +151,56 @@ function ContactFormSection() {
   );
 }
 
-// ✅ Ana Sayfa Bileşeni
+// ✅ Ana Sayfa Bileşeni (Contact Page)
 const ContactMain = () => {
   return (
     <React.Fragment>
+      {/* 🔹 Sayfa-özel SEO */}
+      <Helmet prioritizeSeoTags>
+        <title>Kontakt | Möbeltaxi & Umzug Berlin</title>
+        <meta
+          name="description"
+          content="Kontaktieren Sie Möbeltaxi & Umzug Berlin: Angebote für Umzüge, Möbeltransporte, Entrümpelung, Montage & Lieferung. 24/7 per WhatsApp/Telefon: +49 1577 1677034."
+        />
+        <link rel="canonical" href="https://www.moebeltaxiumzug.com/contact" />
+        <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+
+        {/* Open Graph / Twitter opsiyonel override (index.html zaten genel OG sağlıyorsa şart değil) */}
+        <meta property="og:title" content="Kontakt | Möbeltaxi & Umzug Berlin" />
+        <meta property="og:description" content="Anfrage für Umzug & Transporte in Berlin. Schnell, zuverlässig, günstig – jetzt Kontakt aufnehmen!" />
+        <meta property="og:url" content="https://www.moebeltaxiumzug.com/contact" />
+        <meta property="og:type" content="website" />
+
+        {/* JSON-LD: ContactPage */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "name": "Kontakt – Möbeltaxi & Umzug Berlin",
+            "url": "https://www.moebeltaxiumzug.com/contact",
+            "about": {
+              "@type": "LocalBusiness",
+              "name": "Möbeltaxi & Umzug Berlin",
+              "areaServed": ["Berlin","Brandenburg"],
+              "telephone": "+49 1577 1677034",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Zeppelinstraße 75",
+                "postalCode": "13583",
+                "addressLocality": "Berlin",
+                "addressCountry": "DE"
+              }
+            }
+          })}
+        </script>
+      </Helmet>
+
       {/* İletişim Bilgileri */}
-      <section className="contact-one">
+      <section className="contact-one" aria-labelledby="contact-heading">
         <div className="container">
           <div className="section-title text-center">
-            <div className="section-title__tagline-box">
-              
-            </div>
-            <h2 className="section-title__title">Nehmen Sie Kontakt mit uns auf</h2>
+            <div className="section-title__tagline-box"></div>
+            <h1 id="contact-heading" className="section-title__title">Nehmen Sie Kontakt mit uns auf</h1>
           </div>
           <div className="contact-one__inner">
             <ul className="contact-one__contact-list list-unstyled">
@@ -107,7 +208,9 @@ const ContactMain = () => {
                 <div className="icon"><span className="icon-call" /></div>
                 <div className="content">
                   <h3>Telefon</h3>
-                  <p><a href="tel:+4915771677034">+49 1577 1677034</a></p>
+                  <p>
+                    <a href="tel:+4915771677034" rel="nofollow">+49 1577 1677034</a>
+                  </p>
                 </div>
               </li>
               <li>
@@ -132,13 +235,13 @@ const ContactMain = () => {
       {/* ✅ Yeni Modern Form */}
       <section className="contact-two">
         <div className="container">
-          <div className="row">
+          <div className="row" role="region" aria-label="Kontaktformular und Bild">
             <div className="col-xl-7">
               <ContactFormSection />
             </div>
             <div className="col-xl-5">
               <div className="contact-two__right">
-                <img src={ContactMainImg} alt="Kontakt" />
+                <img src={ContactMainImg} alt="Kontakt – Möbel Taxi & Umzug Berlin" loading="lazy" />
               </div>
             </div>
           </div>
@@ -146,12 +249,14 @@ const ContactMain = () => {
       </section>
 
       {/* Google Map */}
-      <section className="google-map-one google-map-two">
+      <section className="google-map-one google-map-two" aria-label="Anfahrt">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2428.895904438589!2d13.184738577094033!3d52.53743827203902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a85d8c7d7b3ddf%3A0x1d4e5de3e7e35b9!2sZeppelinstra%C3%9Fe%2075%2C%2013583%20Berlin%2C%20Almanya!5e0!3m2!1str!2str!4v1728307899827!5m2!1str!2str"
           className="google-map__one"
-          allowFullScreen=""
+          allowFullScreen
           title="Google Map showing Möbel Taxi Umzug Berlin"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
         />
       </section>
 

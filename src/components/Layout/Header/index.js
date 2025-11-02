@@ -75,7 +75,7 @@ const Header = (props) => {
                     <Link to="/" className="main-logo-link">
                       <img src={navImg} alt="Logo" className="navbar-logo" />
                       <span className="navbar-brand-name">
-                        MöbelTaxi Umzug & Berlin
+                        Möbel Taxi & Umzug Berlin
                       </span>
                     </Link>
                   </div>

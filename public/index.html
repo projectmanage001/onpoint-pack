@@ -1,37 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="de">
+<head>
   <meta charset="utf-8" />
-  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#000000" />
-  <meta
-    name="description"
-    content="Web site created using create-react-app"
-  />
+  <meta name="theme-color" content="#111111" />
+
+  <!-- Robots -->
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+
+  <!-- Primary SEO -->
+  <title>Möbeltaxi & Umzug Berlin – Günstig, schnell & zuverlässig ab 39€</title>
+  <meta name="description" content="Möbeltaxi & Umzug Berlin: Schnell, zuverlässig und günstig ab 39€. Transporte, Mini-Umzüge, Möbelmontage, Entrümpelung & Lieferung (IKEA, Poco, Höffner). 24/7 per WhatsApp: +49 1577 1677034." />
+  <link rel="canonical" href="https://www.moebeltaxiumzug.com/" />
+
+  <!-- Language/region -->
+  <link rel="alternate" href="https://www.moebeltaxiumzug.com/" hreflang="de" />
+  <link rel="alternate" href="https://www.moebeltaxiumzug.com/" hreflang="x-default" />
+  <meta http-equiv="content-language" content="de" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Möbeltaxi & Umzug Berlin – Günstig, schnell & zuverlässig ab 39€" />
+  <meta property="og:description" content="Transporte & Umzüge in Berlin: Möbeltaxi ab 39€, schnelle Abholung, versicherter Transport, 24/7 WhatsApp. Jetzt anfragen!" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.moebeltaxiumzug.com/" />
+  <meta property="og:site_name" content="Möbeltaxi & Umzug Berlin" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:image" content="https://www.moebeltaxiumzug.com/og-preview.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Möbeltaxi & Umzug Berlin – Günstig, schnell & zuverlässig" />
+  <meta property="og:image:type" content="image/jpeg" />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Möbeltaxi & Umzug Berlin – Günstig, schnell & zuverlässig ab 39€" />
+  <meta name="twitter:description" content="Schnelle Möbeltransporte & Umzüge in Berlin. Faire Preise, erfahrene Fahrer, 24/7 erreichbar." />
+  <meta name="twitter:image" content="https://www.moebeltaxiumzug.com/og-preview.jpg" />
+
+  <!-- Icons -->
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" href="%PUBLIC_URL%/logo192.png" />
   <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-
-  <!-- 🔹 Google Fonts: Montserrat -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
-  <title>MöbelTaxi & Umzug Berlin</title>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Sitemap hint -->
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+  <!-- JSON-LD: MovingCompany (yerel SEO için en uygun tip) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MovingCompany",
+    "name": "Möbeltaxi & Umzug Berlin",
+    "image": "https://www.moebeltaxiumzug.com/og-preview.jpg",
+    "url": "https://www.moebeltaxiumzug.com/",
+    "telephone": "+49 1577 1677034",
+    "priceRange": "€€",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Zeppelinstraße 75",
+      "postalCode": "13583",
+      "addressLocality": "Berlin",
+      "addressCountry": "DE"
+    },
+    "areaServed": [
+      {"@type":"City","name":"Berlin"},
+      {"@type":"AdministrativeArea","name":"Brandenburg"}
+    ],
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "00:00",
+      "closes": "23:59"
+    }]
+  }
+  </script>
+
+  <!-- JSON-LD: WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://www.moebeltaxiumzug.com/",
+    "name": "Möbeltaxi & Umzug Berlin",
+    "inLanguage": "de-DE"
+  }
+  </script>
 </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root" class="page-wrapper"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>  
-  </body>
-  
+<body>
+  <noscript>Um diese App auszuführen, aktivieren Sie bitte JavaScript.</noscript>
+  <div id="root" class="page-wrapper"></div>
+</body>
 </html>

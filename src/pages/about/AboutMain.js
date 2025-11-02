@@ -1,4 +1,3 @@
-// src/pages/about/AboutMain.js
 import React from "react";
 import AboutOne from "../../components/About/AboutOne";
 import ContactFormSection from "../../components/Common/ContactFormSection";

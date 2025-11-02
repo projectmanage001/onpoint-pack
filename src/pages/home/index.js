@@ -1,5 +1,6 @@
 // src/pages/home/index.js
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async'; // ✅ eklendi
 import HomeMain from './HomeMain';
 import Footer from '../../components/Layout/Footer';
 import Header from '../../components/Layout/Header';
@@ -66,6 +67,17 @@ const Home = () => {
 
   return (
     <>
+      {/* ✅ Sayfa-özel SEO (global index.html meta’larını tamamlar) */}
+      <Helmet prioritizeSeoTags>
+        <title>Möbeltaxi & Umzug Berlin – Günstig, schnell & zuverlässig ab 39€</title>
+        <meta
+          name="description"
+          content="Möbeltaxi & Umzug Berlin: Schnell, zuverlässig und günstig ab 39€. Transporte, Mini-Umzüge, Möbelmontage, Entrümpelung & Lieferung (IKEA, Poco, Höffner). 24/7 WhatsApp: +49 1577 1677034."
+        />
+        <link rel="canonical" href="https://www.moebeltaxiumzug.com/" />
+        {/* İstersen ana sayfa için OG/Twitter’ı da override edebilirsin; index.html’de varsa şart değil */}
+      </Helmet>
+
       <Header />
       <HomeMain />
 
