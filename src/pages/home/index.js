@@ -8,7 +8,7 @@ import bannerbg from '../../assets/images/backgrounds/page-header-bg.jpg';
 import CtaSection from '../../components/Common/CtaSection';
 import shapeImageUrl from '../../assets/images/shapes/cta-one-shape-1.png';
 
-// ✅ Sabit banner görseli (tam genişlik, responsive yükseklik)
+// ✅ Sabit banner görseli (tam genişlik, responsive mantık)
 import sabitBanner from '../../assets/images/backgrounds/sabit-banner.jpg';
 
 // 🔽 Servis kartları için bileşen ve görseller
@@ -26,21 +26,30 @@ import TestimonialsPreview from '../../components/Testimonial/TestimonialsPrevie
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(false); // ✅ banner object-fit için güvenli kontrol
+  const [isDesktop, setIsDesktop] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setIsVisible(window.scrollY > 300);
     window.addEventListener('scroll', onScroll);
 
-    // ✅ genişlik takibi (SSR güvenli)
-    const mq = window.matchMedia('(min-width: 1024px)');
-    const apply = (e) => setIsDesktop(e.matches);
-    apply(mq);
-    mq.addEventListener ? mq.addEventListener('change', apply) : mq.addListener(apply);
+    // Ekran genişliğini dinle (masaüstü/mobil ayrımı)
+    const mqDesktop = window.matchMedia('(min-width: 1024px)');
+    const mqMobile  = window.matchMedia('(max-width: 767px)');
+
+    const applyDesktop = e => setIsDesktop(e.matches);
+    const applyMobile  = e => setIsMobile(e.matches);
+
+    applyDesktop(mqDesktop);
+    applyMobile(mqMobile);
+
+    mqDesktop.addEventListener ? mqDesktop.addEventListener('change', applyDesktop) : mqDesktop.addListener(applyDesktop);
+    mqMobile.addEventListener  ? mqMobile.addEventListener('change', applyMobile)   : mqMobile.addListener(applyMobile);
 
     return () => {
       window.removeEventListener('scroll', onScroll);
-      mq.removeEventListener ? mq.removeEventListener('change', apply) : mq.removeListener(apply);
+      mqDesktop.removeEventListener ? mqDesktop.removeEventListener('change', applyDesktop) : mqDesktop.removeListener(applyDesktop);
+      mqMobile.removeEventListener  ? mqMobile.removeEventListener('change', applyMobile)   : mqMobile.removeListener(applyMobile);
     };
   }, []);
 
@@ -60,42 +69,58 @@ const Home = () => {
       <Header />
       <HomeMain />
 
-      {/* 🖼️ SABİT BANNER — Bannerın hemen altı */}
+      {/* 🖼️ SABİT BANNER — Masaüstünde tam ekran, mobilde kırpmasız ve az boşluklu */}
       <section
         className="fixed-hero-banner"
-        style={{
-          position: 'relative',
-          width: '100%',
-          overflow: 'hidden',
-          backgroundColor: '#000',
-        }}
         aria-label="Möbel Taxi Berlin – Fiyatı uygun, hızlı ve güvenilir taşımacılık"
+        style={{
+          width: '100%',
+          // Masaüstünde tam ekran boy, mobilde otomatik yükseklik (fazla boşluk yok)
+          minHeight: isDesktop ? '100vh' : 'auto',
+          backgroundColor: '#fff',   // siyah çerçeve yerine beyaz zemin
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          overflow: 'hidden',
+          // Yukarı/aşağıdaki bölümlerle boşluğu sıkı tut
+          margin: 0,
+          padding: 0,
+        }}
       >
         <img
           src={sabitBanner}
           alt="Möbel Taxi Berlin sabit banner"
           style={{
-            width: '100%',
-            height: 'clamp(240px, 40vw, 580px)',
-            objectFit: isDesktop ? 'contain' : 'cover', // ✅ masaüstünde tamamı görünür, mobilde taşma yok
-            objectPosition: 'center center',
+            // Masaüstü: ekranı dolduracak şekilde contain ile tam görünüm
+            // Mobil: genişliğe göre ölçeklen, yükseklik otomatik kalsın (fazla boşluk oluşmasın)
+            width: isMobile ? '100%' : 'auto',
+            height: isDesktop ? '100vh' : (isMobile ? 'auto' : 'auto'),
+            maxWidth: isDesktop ? '100vw' : '100%',
+            maxHeight: isDesktop ? '100vh' : '80vh', // mobil/tablette aşırı uzun olmasın
+            objectFit: 'contain',
             display: 'block',
-            backgroundColor: '#000',
           }}
           loading="eager"
           fetchpriority="high"
-          sizes="(min-width:1024px) 100vw, 100vw"
+          sizes="100vw"
         />
       </section>
 
       {/* 🌟 SEO DOSTU TANITIM BÖLÜMÜ */}
-      <section className="home-intro-section py-5" style={{ backgroundColor: '#fafafa' }}>
+      <section
+        className="home-intro-section"
+        style={{
+          backgroundColor: '#fafafa',
+          // Mobilde üst padding’i küçült → banner ile aradaki boşluk azalır
+          padding: isMobile ? '16px 0 28px' : '40px 0 48px',
+        }}
+      >
         <div className="container">
-          <h1 className="text-center mb-4 fw-bold" style={{ color: '#222' }}>
+          <h1 className="text-center mb-4 fw-bold" style={{ color: '#222', marginTop: 0 }}>
             Möbel Taxi Berlin | ab 39€* – Günstiges Möbel Taxi mit Fahrer in Berlin
           </h1>
 
-          <div className="content" style={{ maxWidth: '900px', margin: '0 auto', color: '#333', lineHeight: '1.8' }}>
+          <div className="content" style={{ maxWidth: '900px', margin: '0 auto', color: '#333', lineHeight: 1.8 }}>
             <p>
               Suchen Sie ein <strong>Möbeltaxi in Berlin</strong>, das schnell, zuverlässig und günstig ist?
               Dann sind Sie bei <strong>moebeltaxiumzug.com</strong> genau richtig!
@@ -148,7 +173,7 @@ const Home = () => {
       </section>
 
       {/* 🚚 SERVİS KARTLARI - Tanıtımın hemen ardından */}
-      <section className="services-page py-5">
+      <section className="services-page py-5" style={{ paddingTop: isMobile ? 24 : undefined }}>
         <div className="container">
           <div className="row">
             {homeServices.map((s, i) => (

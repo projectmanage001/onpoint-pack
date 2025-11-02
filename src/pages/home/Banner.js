@@ -62,7 +62,7 @@ function Banner() {
                           <p className="main-slider__sub-title">MÖBEL TAXI & UMZUG</p>
                         </div>
                         <h2 className="main-slider__title">
-                          MÖBEL TAXI  <span>FAHRER AB </span> <br /> 39€
+                          MÖBEL TAXI + FAHRER  <span> AB 39€</span> <br /> 
                         </h2>
                         <p className="main-slider__text">
                           📍 Berlin & Umgebung – Schnell, zuverlässig und immer mit einem Lächeln unterwegs.
@@ -186,10 +186,10 @@ function Banner() {
                         </div>
                         <h2 className="main-slider__title">
                           
-ZUVERLÄSSIG <span>PÜNKTLICH </span> <br /> FAIR
+ENTRÜMPELUNG <span>LEICHT </span> <br /> GEMACHT
                         </h2>
                         <p className="main-slider__text">
-                          Ihr Partner für Möbeltransporte, Umzüge und Expresslieferungen.
+                          Wir entrümpeln Wohnungen, Keller und Büros schnell, sauber und diskret.
                         </p>
                         <div className="main-slider__btn-and-call-box">
                           <div className="main-slider__btn-box">
